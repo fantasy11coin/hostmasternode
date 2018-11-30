@@ -10,7 +10,7 @@
 #include "script/script.h"
 #include "serialize.h"
 #include "streams.h"
-#include "test/test_hostmasternode.h"
+#include "test/test_fantasy11.h"
 #include "test/test_random.h"
 #include "util.h"
 #include "utilstrencodings.h"

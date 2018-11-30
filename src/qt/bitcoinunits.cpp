@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Hostmasternode Core developers
+// Copyright (c) 2014-2017 The Fantasy11 Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,9 +19,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(HMN);
-    unitlist.append(mHMN);
-    unitlist.append(uHMN);
+    unitlist.append(FANE);
+    unitlist.append(mFANE);
+    unitlist.append(uFANE);
     unitlist.append(hostoshis);
     return unitlist;
 }
@@ -30,9 +30,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case HMN:
-    case mHMN:
-    case uHMN:
+    case FANE:
+    case mFANE:
+    case uFANE:
     case hostoshis:
         return true;
     default:
@@ -46,9 +46,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case HMN: return QString("HMN");
-            case mHMN: return QString("mHMN");
-            case uHMN: return QString::fromUtf8("μHMN");
+            case FANE: return QString("FANE");
+            case mFANE: return QString("mFANE");
+            case uFANE: return QString::fromUtf8("μFANE");
             case hostoshis: return QString("hostoshis");
             default: return QString("???");
         }
@@ -57,9 +57,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case HMN: return QString("tHMN");
-            case mHMN: return QString("mtHMN");
-            case uHMN: return QString::fromUtf8("μtHMN");
+            case FANE: return QString("tFANE");
+            case mFANE: return QString("mtFANE");
+            case uFANE: return QString::fromUtf8("μtFANE");
             case hostoshis: return QString("thostoshis");
             default: return QString("???");
         }
@@ -72,10 +72,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case HMN: return QString("Hostmasternode");
-            case mHMN: return QString("Milli-Hostmasternode (1 / 1" THIN_SP_UTF8 "000)");
-            case uHMN: return QString("Micro-Hostmasternode (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case hostoshis: return QString("Ten Nano-Hostmasternode (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case FANE: return QString("Fantasy11");
+            case mFANE: return QString("Milli-Fantasy11 (1 / 1" THIN_SP_UTF8 "000)");
+            case uFANE: return QString("Micro-Fantasy11 (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case hostoshis: return QString("Ten Nano-Fantasy11 (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -83,10 +83,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case HMN: return QString("TestHostmasternodes");
-            case mHMN: return QString("Milli-TestHostmasternode (1 / 1" THIN_SP_UTF8 "000)");
-            case uHMN: return QString("Micro-TestHostmasternode (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case hostoshis: return QString("Ten Nano-TestHostmasternode (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case FANE: return QString("TestFantasy11s");
+            case mFANE: return QString("Milli-TestFantasy11 (1 / 1" THIN_SP_UTF8 "000)");
+            case uFANE: return QString("Micro-TestFantasy11 (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case hostoshis: return QString("Ten Nano-TestFantasy11 (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -96,9 +96,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case HMN:  return 100000000;
-    case mHMN: return 100000;
-    case uHMN: return 100;
+    case FANE:  return 100000000;
+    case mFANE: return 100000;
+    case uFANE: return 100;
     case hostoshis: return 1;
     default:   return 100000000;
     }
@@ -108,9 +108,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case HMN: return 8;
-    case mHMN: return 5;
-    case uHMN: return 2;
+    case FANE: return 8;
+    case mFANE: return 5;
+    case uFANE: return 2;
     case hostoshis: return 0;
     default: return 0;
     }

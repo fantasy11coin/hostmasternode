@@ -1,11 +1,11 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Hostmasternode Core developers
+// Copyright (c) 2014-2017 The Fantasy11 Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/hostmasternode-config.h"
+#include "config/fantasy11-config.h"
 #endif
 
 #include "util.h"
@@ -108,7 +108,7 @@ namespace boost {
 
 
 
-//Hostmasternode only features
+//Fantasy11 only features
 bool fMasternodeMode = false;
 bool fLiteMode = false;
 /**
@@ -120,8 +120,8 @@ bool fLiteMode = false;
 */
 int nWalletBackups = 10;
 
-const char * const BITCOIN_CONF_FILENAME = "hostmasternode.conf";
-const char * const BITCOIN_PID_FILENAME = "hostmasternoded.pid";
+const char * const BITCOIN_CONF_FILENAME = "fantasy11.conf";
+const char * const BITCOIN_PID_FILENAME = "fantasy11d.pid";
 
 CCriticalSection cs_args;
 std::map<std::string, std::string> mapArgs;
@@ -277,8 +277,8 @@ bool LogAcceptCategory(const char* category)
                 const std::vector<std::string>& categories = mapMultiArgs.at("-debug");
                 ptrCategory.reset(new std::set<std::string>(categories.begin(), categories.end()));
                 // thread_specific_ptr automatically deletes the set when the thread ends.
-                // "hostmasternode" is a composite category enabling all Hostmasternode-related debug output
-                if(ptrCategory->count(std::string("hostmasternode"))) {
+                // "fantasy11" is a composite category enabling all Fantasy11-related debug output
+                if(ptrCategory->count(std::string("fantasy11"))) {
                     ptrCategory->insert(std::string("privatesend"));
                     ptrCategory->insert(std::string("instantsend"));
                     ptrCategory->insert(std::string("masternode"));
@@ -535,7 +535,7 @@ static std::string FormatException(const std::exception* pex, const char* pszThr
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "hostmasternode";
+    const char* pszModule = "fantasy11";
 #endif
     if (pex)
         return strprintf(
@@ -555,13 +555,13 @@ void PrintExceptionContinue(const std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\HostmasternodeCore
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\HostmasternodeCore
-    // Mac: ~/Library/Application Support/HostmasternodeCore
-    // Unix: ~/.hostmasternodecore
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Fantasy11Core
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Fantasy11Core
+    // Mac: ~/Library/Application Support/Fantasy11Core
+    // Unix: ~/.fantasy11core
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "HostmasternodeCore";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "Fantasy11Core";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -571,10 +571,10 @@ boost::filesystem::path GetDefaultDataDir()
         pathRet = fs::path(pszHome);
 #ifdef MAC_OSX
     // Mac
-    return pathRet / "Library/Application Support/HostmasternodeCore";
+    return pathRet / "Library/Application Support/Fantasy11Core";
 #else
     // Unix
-    return pathRet / ".hostmasternodecore";
+    return pathRet / ".fantasy11core";
 #endif
 #endif
 }
@@ -652,7 +652,7 @@ void ReadConfigFile(const std::string& confPath)
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile(confPath));
     if (!streamConfig.good()){
-        // Create empty hostmasternode.conf if it does not excist
+        // Create empty fantasy11.conf if it does not excist
         FILE* configFile = fopen(GetConfigFile(confPath).string().c_str(), "a");
         if (configFile != NULL)
             fclose(configFile);
@@ -666,7 +666,7 @@ void ReadConfigFile(const std::string& confPath)
 
         for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it)
         {
-            // Don't overwrite existing settings so command line settings override hostmasternode.conf
+            // Don't overwrite existing settings so command line settings override fantasy11.conf
             std::string strKey = std::string("-") + it->string_key;
             std::string strValue = it->value[0];
             InterpretNegativeSetting(strKey, strValue);

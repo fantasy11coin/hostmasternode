@@ -1,10 +1,10 @@
 // Copyright (c) 2012-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Hostmasternode Core developers
+// Copyright (c) 2014-2017 The Fantasy11 Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "netbase.h"
-#include "test/test_hostmasternode.h"
+#include "test/test_fantasy11.h"
 
 #include <string>
 

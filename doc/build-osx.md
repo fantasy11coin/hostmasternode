@@ -24,17 +24,17 @@ If you want to build the disk image with `make deploy` (.dmg / optional), you ne
 
 NOTE: Building with Qt4 is still supported, however, doing so could result in a broken UI. Therefore, building with Qt5 is recommended.
 
-Build Hostmasternode Core
+Build Fantasy11 Core
 ------------------------
 
-1. Clone the Hostmasternode Core source code and cd into `hostmasternode`
+1. Clone the Fantasy11 Core source code and cd into `fantasy11`
 
-        git clone https://github.com/hostmasternodepay/hostmasternode
-        cd hostmasternode
+        git clone https://github.com/fantasy11pay/fantasy11
+        cd fantasy11
 
-2.  Build Hostmasternode Core:
+2.  Build Fantasy11 Core:
 
-    Configure and build the headless hostmasternode binaries as well as the GUI (if Qt is found).
+    Configure and build the headless fantasy11 binaries as well as the GUI (if Qt is found).
 
     You can disable the GUI build by passing `--without-gui` to configure.
 
@@ -53,37 +53,37 @@ Build Hostmasternode Core
 Running
 -------
 
-Hostmasternode Core is now available at `./src/hostmasternoded`
+Fantasy11 Core is now available at `./src/fantasy11d`
 
 Before running, it's recommended you create an RPC configuration file.
 
-    echo -e "rpcuser=hostmasternoderpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/HostmasternodeCore/hostmasternode.conf"
+    echo -e "rpcuser=fantasy11rpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Fantasy11Core/fantasy11.conf"
 
-    chmod 600 "/Users/${USER}/Library/Application Support/HostmasternodeCore/hostmasternode.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/Fantasy11Core/fantasy11.conf"
 
-The first time you run hostmasternoded, it will start downloading the blockchain. This process could take several hours.
+The first time you run fantasy11d, it will start downloading the blockchain. This process could take several hours.
 
 You can monitor the download process by looking at the debug.log file:
 
-    tail -f $HOME/Library/Application\ Support/HostmasternodeCore/debug.log
+    tail -f $HOME/Library/Application\ Support/Fantasy11Core/debug.log
 
 Other commands:
 -------
 
-    ./src/hostmasternoded -daemon # Starts the hostmasternode daemon.
-    ./src/hostmasternode-cli --help # Outputs a list of command-line options.
-    ./src/hostmasternode-cli help # Outputs a list of RPC commands when the daemon is running.
+    ./src/fantasy11d -daemon # Starts the fantasy11 daemon.
+    ./src/fantasy11-cli --help # Outputs a list of command-line options.
+    ./src/fantasy11-cli help # Outputs a list of RPC commands when the daemon is running.
 
 Using Qt Creator as IDE
 ------------------------
-You can use Qt Creator as an IDE, for hostmasternode development.
+You can use Qt Creator as an IDE, for fantasy11 development.
 Download and install the community edition of [Qt Creator](https://www.qt.io/download/).
 Uncheck everything except Qt Creator during the installation process.
 
 1. Make sure you installed everything through Homebrew mentioned above
 2. Do a proper ./configure --enable-debug
 3. In Qt Creator do "New Project" -> Import Project -> Import Existing Project
-4. Enter "hostmasternode-qt" as project name, enter src/qt as location
+4. Enter "fantasy11-qt" as project name, enter src/qt as location
 5. Leave the file selection as it is
 6. Confirm the "summary page"
 7. In the "Projects" tab select "Manage Kits..."

@@ -7,23 +7,23 @@ define(_CLIENT_VERSION_BUILD, 2)
 define(_CLIENT_VERSION_IS_RELEASE, true)
 define(_COPYRIGHT_YEAR, 2018)
 define(_COPYRIGHT_HOLDERS,[The %s developers])
-define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[Hostmasternode Core]])
-AC_INIT([Hostmasternode Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/hostmasternodepay/hostmasternode/issues],[hostmasternodecore],[https://hostmasternode.com/])
+define(_COPYRIGHT_HOLDERS_SUBSTITUTION,[[Fantasy11 Core]])
+AC_INIT([Fantasy11 Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[https://github.com/fantasy11pay/fantasy11/issues],[fantasy11core],[https://fantasy11.com/])
 AC_CONFIG_SRCDIR([src/validation.cpp])
-AC_CONFIG_HEADERS([src/config/hostmasternode-config.h])
+AC_CONFIG_HEADERS([src/config/fantasy11-config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
 
-BITCOIN_DAEMON_NAME=hostmasternoded
-BITCOIN_GUI_NAME=hostmasternode-qt
-BITCOIN_CLI_NAME=hostmasternode-cli
-BITCOIN_TX_NAME=hostmasternode-tx
+BITCOIN_DAEMON_NAME=fantasy11d
+BITCOIN_GUI_NAME=fantasy11-qt
+BITCOIN_CLI_NAME=fantasy11-cli
+BITCOIN_TX_NAME=fantasy11-tx
 
 AC_CANONICAL_HOST
 
-AH_TOP([#ifndef HMN_CONFIG_H])
-AH_TOP([#define HMN_CONFIG_H])
-AH_BOTTOM([#endif //HMN_CONFIG_H])
+AH_TOP([#ifndef FANE_CONFIG_H])
+AH_TOP([#define FANE_CONFIG_H])
+AH_BOTTOM([#endif //FANE_CONFIG_H])
 
 dnl faketime breaks configure and is only needed for make. Disable it here.
 unset FAKETIME
@@ -241,7 +241,7 @@ CPPFLAGS="$CPPFLAGS -DHAVE_BUILD_INFO -D__STDC_FORMAT_MACROS"
 
 AC_ARG_WITH([utils],
   [AS_HELP_STRING([--with-utils],
-  [build hostmasternode-cli hostmasternode-tx (default=yes)])],
+  [build fantasy11-cli fantasy11-tx (default=yes)])],
   [build_bitcoin_utils=$withval],
   [build_bitcoin_utils=yes])
 
@@ -253,7 +253,7 @@ AC_ARG_WITH([libs],
 
 AC_ARG_WITH([daemon],
   [AS_HELP_STRING([--with-daemon],
-  [build hostmasternoded daemon (default=yes)])],
+  [build fantasy11d daemon (default=yes)])],
   [build_bitcoind=$withval],
   [build_bitcoind=yes])
 
@@ -444,7 +444,7 @@ AC_C_BIGENDIAN
 dnl Check for pthread compile/link requirements
 AX_PTHREAD
 
-# The following macro will add the necessary defines to hostmasternode-config.h, but
+# The following macro will add the necessary defines to fantasy11-config.h, but
 # they also need to be passed down to any subprojects. Pull the results out of
 # the cache and add them to CPPFLAGS.
 AC_SYS_LARGEFILE
@@ -917,11 +917,11 @@ AC_SUBST(UNIVALUE_LIBS)
 
 BITCOIN_QT_PATH_PROGS([PROTOC], [protoc],$protoc_bin_path)
 
-AC_MSG_CHECKING([whether to build hostmasternoded])
+AC_MSG_CHECKING([whether to build fantasy11d])
 AM_CONDITIONAL([BUILD_BITCOIND], [test x$build_bitcoind = xyes])
 AC_MSG_RESULT($build_bitcoind)
 
-AC_MSG_CHECKING([whether to build utils (hostmasternode-cli hostmasternode-tx)])
+AC_MSG_CHECKING([whether to build utils (fantasy11-cli fantasy11-tx)])
 AM_CONDITIONAL([BUILD_BITCOIN_UTILS], [test x$build_bitcoin_utils = xyes])
 AC_MSG_RESULT($build_bitcoin_utils)
 
@@ -929,7 +929,7 @@ AC_MSG_CHECKING([whether to build libraries])
 AM_CONDITIONAL([BUILD_BITCOIN_LIBS], [test x$build_bitcoin_libs = xyes])
 if test x$build_bitcoin_libs = xyes; then
   AC_DEFINE(HAVE_CONSENSUS_LIB, 1, [Define this symbol if the consensus lib has been built])
-  AC_CONFIG_FILES([libhostmasternodeconsensus.pc:libhostmasternodeconsensus.pc.in])
+  AC_CONFIG_FILES([libfantasy11consensus.pc:libfantasy11consensus.pc.in])
 fi
 AC_MSG_RESULT($build_bitcoin_libs)
 
@@ -1022,7 +1022,7 @@ if test x$bitcoin_enable_qt != xno; then
     AC_MSG_WARN("xgettext is required to update qt translations")
   fi
 
-  AC_MSG_CHECKING([whether to build test_hostmasternode-qt])
+  AC_MSG_CHECKING([whether to build test_fantasy11-qt])
   if test x$use_gui_tests$bitcoin_enable_qt_test = xyesyes; then
     AC_MSG_RESULT([yes])
     BUILD_TEST_QT="yes"
@@ -1033,7 +1033,7 @@ fi
 
 AM_CONDITIONAL([ENABLE_ZMQ], [test "x$use_zmq" = "xyes"])
 
-AC_MSG_CHECKING([whether to build test_hostmasternode])
+AC_MSG_CHECKING([whether to build test_fantasy11])
 if test x$use_tests = xyes; then
   AC_MSG_RESULT([yes])
   BUILD_TEST="yes"

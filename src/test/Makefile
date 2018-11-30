@@ -1,6 +1,6 @@
 all:
-	$(MAKE) -C .. hostmasternode_test
+	$(MAKE) -C .. fantasy11_test
 clean:
-	$(MAKE) -C .. hostmasternode_test_clean
+	$(MAKE) -C .. fantasy11_test_clean
 check:
-	$(MAKE) -C .. hostmasternode_test_check
+	$(MAKE) -C .. fantasy11_test_check

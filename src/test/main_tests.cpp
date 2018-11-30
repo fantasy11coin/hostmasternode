@@ -4,7 +4,7 @@
 
 #include "net.h"
 
-#include "test/test_hostmasternode.h"
+#include "test/test_fantasy11.h"
 
 #include <boost/signals2/signal.hpp>
 #include <boost/test/unit_test.hpp>

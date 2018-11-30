@@ -1,21 +1,21 @@
 
 Debian
 ====================
-This directory contains files used to package hostmasternoded/hostmasternode-qt
-for Debian-based Linux systems. If you compile hostmasternoded/hostmasternode-qt yourself, there are some useful files here.
+This directory contains files used to package fantasy11d/fantasy11-qt
+for Debian-based Linux systems. If you compile fantasy11d/fantasy11-qt yourself, there are some useful files here.
 
-## hostmasternode: URI support ##
+## fantasy11: URI support ##
 
 
-hostmasternode-qt.desktop  (Gnome / Open Desktop)
+fantasy11-qt.desktop  (Gnome / Open Desktop)
 To install:
 
-	sudo desktop-file-install hostmasternode-qt.desktop
+	sudo desktop-file-install fantasy11-qt.desktop
 	sudo update-desktop-database
 
 If you build yourself, you will either need to modify the paths in
-the .desktop file or copy or symlink your hostmasternode-qt binary to `/usr/bin`
-and the `../../share/pixmaps/hostmasternode128.png` to `/usr/share/pixmaps`
+the .desktop file or copy or symlink your fantasy11-qt binary to `/usr/bin`
+and the `../../share/pixmaps/fantasy11128.png` to `/usr/share/pixmaps`
 
-hostmasternode-qt.protocol (KDE)
+fantasy11-qt.protocol (KDE)
 

@@ -467,7 +467,7 @@ const char * const wordlist[] = {
 "dance",
 "danger",
 "daring",
-"hostmasternode",
+"fantasy11",
 "daughter",
 "dawn",
 "day",

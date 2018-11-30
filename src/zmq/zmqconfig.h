@@ -6,7 +6,7 @@
 #define BITCOIN_ZMQ_ZMQCONFIG_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/hostmasternode-config.h"
+#include "config/fantasy11-config.h"
 #endif
 
 #include <stdarg.h>

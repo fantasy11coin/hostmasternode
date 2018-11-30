@@ -1,5 +1,5 @@
 ---
-name: "hostmasternode-raspberry-0.12"
+name: "fantasy11-raspberry-0.12"
 enable_cache: true
 suites:
 - "precise"
@@ -17,8 +17,8 @@ packages:
 - "binutils-gold"
 reference_datetime: "2017-01-01 00:00:00"
 remotes:
-- "url": "https://github.com/hostmasternodepay/hostmasternode.git"
-  "dir": "hostmasternode"
+- "url": "https://github.com/fantasy11pay/fantasy11.git"
+  "dir": "fantasy11"
 files:
 - "raspberrypi-tools.tar.gz"
 script: |
@@ -67,7 +67,7 @@ script: |
   done
   export PATH=${WRAP_DIR}:${PATH}
 
-  cd hostmasternode
+  cd fantasy11
   BASEPREFIX=`pwd`/depends
   # Build dependencies for each host
   for i in $HOSTS; do
@@ -78,13 +78,13 @@ script: |
   ./autogen.sh
   ./configure --prefix=${BASEPREFIX}/`echo "${HOSTS}" | awk '{print $1;}'`
   make NO_QT=1 dist
-  SOURCEDIST=`echo hostmasternodecore-*.tar.gz`
+  SOURCEDIST=`echo fantasy11core-*.tar.gz`
   DISTNAME=`echo ${SOURCEDIST} | sed 's/.tar.*//'`
   # Correct tar file order
   mkdir -p temp
   pushd temp
   tar xf ../$SOURCEDIST
-  find hostmasternodecore-* | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ../$SOURCEDIST
+  find fantasy11core-* | sort | tar --no-recursion --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 -c -T - | gzip -9n > ../$SOURCEDIST
   popd
 
   ORIGPATH="$PATH"

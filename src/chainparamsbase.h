@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between hostmasternode-cli and hostmasternoded)
- * of a given instance of the Hostmasternode system.
+ * CBaseChainParams defines the base parameters (shared between fantasy11-cli and fantasy11d)
+ * of a given instance of the Fantasy11 system.
  */
 class CBaseChainParams
 {

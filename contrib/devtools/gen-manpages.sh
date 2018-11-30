@@ -4,10 +4,10 @@ TOPDIR=${TOPDIR:-$(git rev-parse --show-toplevel)}
 SRCDIR=${SRCDIR:-$TOPDIR/src}
 MANDIR=${MANDIR:-$TOPDIR/doc/man}
 
-BITCOIND=${BITCOIND:-$SRCDIR/hostmasternoded}
-BITCOINCLI=${BITCOINCLI:-$SRCDIR/hostmasternode-cli}
-BITCOINTX=${BITCOINTX:-$SRCDIR/hostmasternode-tx}
-BITCOINQT=${BITCOINQT:-$SRCDIR/qt/hostmasternode-qt}
+BITCOIND=${BITCOIND:-$SRCDIR/fantasy11d}
+BITCOINCLI=${BITCOINCLI:-$SRCDIR/fantasy11-cli}
+BITCOINTX=${BITCOINTX:-$SRCDIR/fantasy11-tx}
+BITCOINQT=${BITCOINQT:-$SRCDIR/qt/fantasy11-qt}
 
 [ ! -x $BITCOIND ] && echo "$BITCOIND not found or not executable." && exit 1
 

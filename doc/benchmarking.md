@@ -1,11 +1,11 @@
 Benchmarking
 ============
 
-Hostmasternode Core has an internal benchmarking framework, with benchmarks
+Fantasy11 Core has an internal benchmarking framework, with benchmarks
 for cryptographic algorithms such as SHA1, SHA256, SHA512 and RIPEMD160. As well as the rolling bloom filter.
 
-After compiling Hostmasternode Core, the benchmarks can be run with:
-`src/bench/bench_hostmasternode`
+After compiling Fantasy11 Core, the benchmarks can be run with:
+`src/bench/bench_fantasy11`
 
 The output will look similar to:
 ```

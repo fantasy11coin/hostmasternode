@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017 The Hostmasternode Core developers
+// Copyright (c) 2014-2017 The Fantasy11 Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include "privatesend.h"
@@ -392,10 +392,10 @@ int CPrivateSend::GetDenominations(const std::vector<CTxOut>& vecTxOut, bool fSi
 bool CPrivateSend::GetDenominationsBits(int nDenom, std::vector<int> &vecBitsRet)
 {
     // ( bit on if present, 4 denominations example )
-    // bit 0 - 100HMN+1
-    // bit 1 - 10HMN+1
-    // bit 2 - 1HMN+1
-    // bit 3 - .1HMN+1
+    // bit 0 - 100FANE+1
+    // bit 1 - 10FANE+1
+    // bit 2 - 1FANE+1
+    // bit 3 - .1FANE+1
 
     int nMaxDenoms = vecStandardDenominations.size();
 
@@ -514,14 +514,14 @@ void CPrivateSend::SyncTransaction(const CTransaction& tx, const CBlockIndex *pi
 //TODO: Rename/move to core
 void ThreadCheckPrivateSend(CConnman& connman)
 {
-    if(fLiteMode) return; // disable all Hostmasternode specific functionality
+    if(fLiteMode) return; // disable all Fantasy11 specific functionality
 
     static bool fOneThread;
     if(fOneThread) return;
     fOneThread = true;
 
     // Make this thread recognisable as the PrivateSend thread
-    RenameThread("hostmasternode-ps");
+    RenameThread("fantasy11-ps");
 
     unsigned int nTick = 0;
 

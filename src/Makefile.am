@@ -1,5 +1,5 @@
 # Copyright (c) 2013-2016 The Bitcoin Core developers
-# Copyright (c) 2014-2018 The Hostmasternode Core developers
+# Copyright (c) 2014-2018 The Fantasy11 Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -25,23 +25,23 @@ BITCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BDB_CPPFLAGS) $(BOOST_CPPFLAG
 BITCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
 BITCOIN_INCLUDES += $(UNIVALUE_CFLAGS)
 
-LIBBITCOIN_SERVER=libhostmasternode_server.a
-LIBBITCOIN_COMMON=libhostmasternode_common.a
-LIBBITCOIN_CONSENSUS=libhostmasternode_consensus.a
-LIBBITCOIN_CLI=libhostmasternode_cli.a
-LIBBITCOIN_UTIL=libhostmasternode_util.a
-LIBBITCOIN_CRYPTO=crypto/libhostmasternode_crypto.a
-LIBBITCOINQT=qt/libhostmasternodeqt.a
+LIBBITCOIN_SERVER=libfantasy11_server.a
+LIBBITCOIN_COMMON=libfantasy11_common.a
+LIBBITCOIN_CONSENSUS=libfantasy11_consensus.a
+LIBBITCOIN_CLI=libfantasy11_cli.a
+LIBBITCOIN_UTIL=libfantasy11_util.a
+LIBBITCOIN_CRYPTO=crypto/libfantasy11_crypto.a
+LIBBITCOINQT=qt/libfantasy11qt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 if ENABLE_ZMQ
-LIBBITCOIN_ZMQ=libhostmasternode_zmq.a
+LIBBITCOIN_ZMQ=libfantasy11_zmq.a
 endif
 if BUILD_BITCOIN_LIBS
-LIBBITCOINCONSENSUS=libhostmasternodeconsensus.la
+LIBBITCOINCONSENSUS=libfantasy11consensus.la
 endif
 if ENABLE_WALLET
-LIBBITCOIN_WALLET=libhostmasternode_wallet.a
+LIBBITCOIN_WALLET=libfantasy11_wallet.a
 endif
 
 $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
@@ -66,15 +66,15 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += hostmasternoded
+  bin_PROGRAMS += fantasy11d
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += hostmasternode-cli hostmasternode-tx
+  bin_PROGRAMS += fantasy11-cli fantasy11-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# hostmasternode core #
+# fantasy11 core #
 BITCOIN_CORE_H = \
   addrdb.h \
   activemasternode.h \
@@ -201,12 +201,12 @@ obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
 	@$(top_srcdir)/share/genbuild.sh $(abs_top_builddir)/src/obj/build.h \
 	  $(abs_top_srcdir)
-libhostmasternode_util_a-clientversion.$(OBJEXT): obj/build.h
+libfantasy11_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between hostmasternoded and hostmasternode-qt
-libhostmasternode_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
-libhostmasternode_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libhostmasternode_server_a_SOURCES = \
+# server: shared between fantasy11d and fantasy11-qt
+libfantasy11_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
+libfantasy11_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libfantasy11_server_a_SOURCES = \
   activemasternode.cpp \
   addrman.cpp \
   addrdb.cpp \
@@ -268,20 +268,20 @@ libhostmasternode_server_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 if ENABLE_ZMQ
-libhostmasternode_zmq_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(ZMQ_CFLAGS)
-libhostmasternode_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libhostmasternode_zmq_a_SOURCES = \
+libfantasy11_zmq_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(ZMQ_CFLAGS)
+libfantasy11_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libfantasy11_zmq_a_SOURCES = \
   zmq/zmqabstractnotifier.cpp \
   zmq/zmqnotificationinterface.cpp \
   zmq/zmqpublishnotifier.cpp
 endif
 
 
-# wallet: shared between hostmasternoded and hostmasternode-qt, but only linked
+# wallet: shared between fantasy11d and fantasy11-qt, but only linked
 # when wallet enabled
-libhostmasternode_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libhostmasternode_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libhostmasternode_wallet_a_SOURCES = \
+libfantasy11_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libfantasy11_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libfantasy11_wallet_a_SOURCES = \
   keepass.cpp \
   privatesend-client.cpp \
   privatesend-util.cpp \
@@ -295,9 +295,9 @@ libhostmasternode_wallet_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 # crypto primitives library
-crypto_libhostmasternode_crypto_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_CONFIG_INCLUDES) $(PIC_FLAGS)
-crypto_libhostmasternode_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS) $(PIC_FLAGS)
-crypto_libhostmasternode_crypto_a_SOURCES = \
+crypto_libfantasy11_crypto_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_CONFIG_INCLUDES) $(PIC_FLAGS)
+crypto_libfantasy11_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS) $(PIC_FLAGS)
+crypto_libfantasy11_crypto_a_SOURCES = \
   crypto/aes.cpp \
   crypto/aes.h \
   crypto/common.h \
@@ -316,7 +316,7 @@ crypto_libhostmasternode_crypto_a_SOURCES = \
   crypto/sha512.h
 
 # x11
-crypto_libhostmasternode_crypto_a_SOURCES += \
+crypto_libfantasy11_crypto_a_SOURCES += \
   crypto/blake.c \
   crypto/bmw.c \
   crypto/cubehash.c \
@@ -342,9 +342,9 @@ crypto_libhostmasternode_crypto_a_SOURCES += \
   crypto/sph_types.h
 
 # consensus: shared between all executables that validate any consensus rules.
-libhostmasternode_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libhostmasternode_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libhostmasternode_consensus_a_SOURCES = \
+libfantasy11_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libfantasy11_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libfantasy11_consensus_a_SOURCES = \
   amount.h \
   arith_uint256.cpp \
   arith_uint256.h \
@@ -361,7 +361,7 @@ libhostmasternode_consensus_a_SOURCES = \
   primitives/transaction.h \
   pubkey.cpp \
   pubkey.h \
-  script/hostmasternodeconsensus.cpp \
+  script/fantasy11consensus.cpp \
   script/interpreter.cpp \
   script/interpreter.h \
   script/script.cpp \
@@ -382,10 +382,10 @@ libhostmasternode_consensus_a_SOURCES = \
   crypto/Lyra2RE/Sponge.c \
   crypto/Lyra2RE/Sponge.h
 
-# common: shared between hostmasternoded, and hostmasternode-qt and non-server tools
-libhostmasternode_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libhostmasternode_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libhostmasternode_common_a_SOURCES = \
+# common: shared between fantasy11d, and fantasy11-qt and non-server tools
+libfantasy11_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libfantasy11_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libfantasy11_common_a_SOURCES = \
   amount.cpp \
   base58.cpp \
   bip39.cpp \
@@ -409,9 +409,9 @@ libhostmasternode_common_a_SOURCES = \
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libhostmasternode_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libhostmasternode_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libhostmasternode_util_a_SOURCES = \
+libfantasy11_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libfantasy11_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libfantasy11_util_a_SOURCES = \
   support/lockedpool.cpp \
   chainparamsbase.cpp \
   clientversion.cpp \
@@ -430,30 +430,30 @@ libhostmasternode_util_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 if GLIBC_BACK_COMPAT
-libhostmasternode_util_a_SOURCES += compat/glibc_compat.cpp
+libfantasy11_util_a_SOURCES += compat/glibc_compat.cpp
 endif
 
-# cli: shared between hostmasternode-cli and hostmasternode-qt
-libhostmasternode_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libhostmasternode_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libhostmasternode_cli_a_SOURCES = \
+# cli: shared between fantasy11-cli and fantasy11-qt
+libfantasy11_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libfantasy11_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libfantasy11_cli_a_SOURCES = \
   rpc/client.cpp \
   $(BITCOIN_CORE_H)
 
-nodist_libhostmasternode_util_a_SOURCES = $(srcdir)/obj/build.h
+nodist_libfantasy11_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# hostmasternoded binary #
-hostmasternoded_SOURCES = hostmasternoded.cpp
-hostmasternoded_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-hostmasternoded_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-hostmasternoded_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# fantasy11d binary #
+fantasy11d_SOURCES = fantasy11d.cpp
+fantasy11d_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+fantasy11d_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+fantasy11d_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-hostmasternoded_SOURCES += hostmasternoded-res.rc
+fantasy11d_SOURCES += fantasy11d-res.rc
 endif
 
-hostmasternoded_LDADD = \
+fantasy11d_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -466,37 +466,37 @@ hostmasternoded_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-hostmasternoded_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+fantasy11d_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
-# hostmasternode-cli binary #
-hostmasternode_cli_SOURCES = hostmasternode-cli.cpp
-hostmasternode_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-hostmasternode_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-hostmasternode_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# fantasy11-cli binary #
+fantasy11_cli_SOURCES = fantasy11-cli.cpp
+fantasy11_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+fantasy11_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+fantasy11_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-hostmasternode_cli_SOURCES += hostmasternode-cli-res.rc
+fantasy11_cli_SOURCES += fantasy11-cli-res.rc
 endif
 
-hostmasternode_cli_LDADD = \
+fantasy11_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
-hostmasternode_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+fantasy11_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# hostmasternode-tx binary #
-hostmasternode_tx_SOURCES = hostmasternode-tx.cpp
-hostmasternode_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-hostmasternode_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-hostmasternode_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# fantasy11-tx binary #
+fantasy11_tx_SOURCES = fantasy11-tx.cpp
+fantasy11_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+fantasy11_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+fantasy11_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-hostmasternode_tx_SOURCES += hostmasternode-tx-res.rc
+fantasy11_tx_SOURCES += fantasy11-tx-res.rc
 endif
 
-hostmasternode_tx_LDADD = \
+fantasy11_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -504,22 +504,22 @@ hostmasternode_tx_LDADD = \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-hostmasternode_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+fantasy11_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
-# hostmasternodeconsensus library #
+# fantasy11consensus library #
 if BUILD_BITCOIN_LIBS
-include_HEADERS = script/hostmasternodeconsensus.h
-libhostmasternodeconsensus_la_SOURCES = $(crypto_libhostmasternode_crypto_a_SOURCES) $(libhostmasternode_consensus_a_SOURCES)
+include_HEADERS = script/fantasy11consensus.h
+libfantasy11consensus_la_SOURCES = $(crypto_libfantasy11_crypto_a_SOURCES) $(libfantasy11_consensus_a_SOURCES)
 
 if GLIBC_BACK_COMPAT
-  libhostmasternodeconsensus_la_SOURCES += compat/glibc_compat.cpp
+  libfantasy11consensus_la_SOURCES += compat/glibc_compat.cpp
 endif
 
-libhostmasternodeconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
-libhostmasternodeconsensus_la_LIBADD = $(LIBSECP256K1)
-libhostmasternodeconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
-libhostmasternodeconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libfantasy11consensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
+libfantasy11consensus_la_LIBADD = $(LIBSECP256K1)
+libfantasy11consensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
+libfantasy11consensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif
 #
@@ -550,12 +550,12 @@ DISTCLEANFILES = obj/build.h
 EXTRA_DIST = $(CTAES_DIST)
 
 
-config/hostmasternode-config.h: config/stamp-h1
+config/fantasy11-config.h: config/stamp-h1
 	@$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-config/stamp-h1: $(top_srcdir)/$(subdir)/config/hostmasternode-config.h.in $(top_builddir)/config.status
+config/stamp-h1: $(top_srcdir)/$(subdir)/config/fantasy11-config.h.in $(top_builddir)/config.status
 	$(AM_V_at)$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-$(top_srcdir)/$(subdir)/config/hostmasternode-config.h.in:  $(am__configure_deps)
-	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/hostmasternode-config.h.in
+$(top_srcdir)/$(subdir)/config/fantasy11-config.h.in:  $(am__configure_deps)
+	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/fantasy11-config.h.in
 
 clean-local:
 	-$(MAKE) -C secp256k1 clean

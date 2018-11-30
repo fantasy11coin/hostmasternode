@@ -1,7 +1,7 @@
 Description
 ------------
 
-This directory contains data-driven tests for various aspects of Hostmasternode.
+This directory contains data-driven tests for various aspects of Fantasy11.
 
 License
 --------

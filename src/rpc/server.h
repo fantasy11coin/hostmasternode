@@ -143,7 +143,7 @@ public:
 };
 
 /**
- * Hostmasternode RPC command dispatcher.
+ * Fantasy11 RPC command dispatcher.
  */
 class CRPCTable
 {

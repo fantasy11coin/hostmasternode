@@ -1,8 +1,8 @@
-// Copyright (c) 2014-2017 The Hostmasternode Core developers
+// Copyright (c) 2014-2017 The Fantasy11 Core developers
 
 #include "cachemap.h"
 
-#include "test/test_hostmasternode.h"
+#include "test/test_fantasy11.h"
 
 #include <boost/test/unit_test.hpp>
 

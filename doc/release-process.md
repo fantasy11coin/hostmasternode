@@ -1,9 +1,9 @@
 Release Process
 ====================
 
-* Update translations, see [translation_process.md](https://github.com/hostmasternodepay/hostmasternode/blob/master/doc/translation_process.md#synchronising-translations).
+* Update translations, see [translation_process.md](https://github.com/fantasy11pay/fantasy11/blob/master/doc/translation_process.md#synchronising-translations).
 
-* Update manpages, see [gen-manpages.sh](https://github.com/hostmasternodepay/hostmasternode/blob/master/contrib/devtools/README.md#gen-manpagessh).
+* Update manpages, see [gen-manpages.sh](https://github.com/fantasy11pay/fantasy11/blob/master/contrib/devtools/README.md#gen-manpagessh).
 
 Before every minor and major release:
 
@@ -19,7 +19,7 @@ Before every minor and major release:
 
 Before every major release:
 
-* Update hardcoded [seeds](/contrib/seeds/README.md). TODO: Give example PR for Hostmasternode
+* Update hardcoded [seeds](/contrib/seeds/README.md). TODO: Give example PR for Fantasy11
 * Update [`BLOCK_CHAIN_SIZE`](/src/qt/intro.cpp) to the current size plus some overhead.
 
 ### First time / New builders
@@ -29,12 +29,12 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
 	cd /path/to/your/toplevel/build
-	git clone https://github.com/hostmasternodepay/gitian.sigs.git
-	git clone https://github.com/hostmasternodepay/hostmasternode-detached-sigs.git
+	git clone https://github.com/fantasy11pay/gitian.sigs.git
+	git clone https://github.com/fantasy11pay/fantasy11-detached-sigs.git
 	git clone https://github.com/devrandom/gitian-builder.git
-	git clone https://github.com/hostmasternodepay/hostmasternode.git
+	git clone https://github.com/fantasy11pay/fantasy11.git
 
-### Hostmasternode Core maintainers/release engineers, update (commit) version in sources
+### Fantasy11 Core maintainers/release engineers, update (commit) version in sources
 
 - `configure.ac`:
     - `_CLIENT_VERSION_MAJOR`
@@ -68,7 +68,7 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 
 Setup Gitian descriptors:
 
-    pushd ./hostmasternode
+    pushd ./fantasy11
     export SIGNER=(your Gitian key, ie bluematt, sipa, etc)
     export VERSION=(new version, e.g. 0.12.3)
     git fetch
@@ -103,7 +103,7 @@ Create the OS X SDK tarball, see the [OS X readme](README_osx.md) for details, a
 By default, Gitian will fetch source files as needed. To cache them ahead of time:
 
     pushd ./gitian-builder
-    make -C ../hostmasternode/depends download SOURCES_PATH=`pwd`/cache/common
+    make -C ../fantasy11/depends download SOURCES_PATH=`pwd`/cache/common
     popd
 
 Only missing files will be fetched, so this is safe to re-run for each build.
@@ -111,50 +111,50 @@ Only missing files will be fetched, so this is safe to re-run for each build.
 NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from local URLs. For example:
 
     pushd ./gitian-builder
-    ./bin/gbuild --url hostmasternode=/path/to/hostmasternode,signature=/path/to/sigs {rest of arguments}
+    ./bin/gbuild --url fantasy11=/path/to/fantasy11,signature=/path/to/sigs {rest of arguments}
     popd
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
-### Build and sign Hostmasternode Core for Linux, Windows, and OS X:
+### Build and sign Fantasy11 Core for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
-    ./bin/gbuild --memory 3000 --commit hostmasternode=v${VERSION} ../hostmasternode/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../hostmasternode/contrib/gitian-descriptors/gitian-linux.yml
-    mv build/out/hostmasternode-*.tar.gz build/out/src/hostmasternode-*.tar.gz ../
+    ./bin/gbuild --memory 3000 --commit fantasy11=v${VERSION} ../fantasy11/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../fantasy11/contrib/gitian-descriptors/gitian-linux.yml
+    mv build/out/fantasy11-*.tar.gz build/out/src/fantasy11-*.tar.gz ../
 
-    ./bin/gbuild --memory 3000 --commit hostmasternode=v${VERSION} ../hostmasternode/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../hostmasternode/contrib/gitian-descriptors/gitian-win.yml
-    mv build/out/hostmasternode-*-win-unsigned.tar.gz inputs/hostmasternode-win-unsigned.tar.gz
-    mv build/out/hostmasternode-*.zip build/out/hostmasternode-*.exe ../
+    ./bin/gbuild --memory 3000 --commit fantasy11=v${VERSION} ../fantasy11/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../fantasy11/contrib/gitian-descriptors/gitian-win.yml
+    mv build/out/fantasy11-*-win-unsigned.tar.gz inputs/fantasy11-win-unsigned.tar.gz
+    mv build/out/fantasy11-*.zip build/out/fantasy11-*.exe ../
 
-    ./bin/gbuild --memory 3000 --commit hostmasternode=v${VERSION} ../hostmasternode/contrib/gitian-descriptors/gitian-osx.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../hostmasternode/contrib/gitian-descriptors/gitian-osx.yml
-    mv build/out/hostmasternode-*-osx-unsigned.tar.gz inputs/hostmasternode-osx-unsigned.tar.gz
-    mv build/out/hostmasternode-*.tar.gz build/out/hostmasternode-*.dmg ../
+    ./bin/gbuild --memory 3000 --commit fantasy11=v${VERSION} ../fantasy11/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../fantasy11/contrib/gitian-descriptors/gitian-osx.yml
+    mv build/out/fantasy11-*-osx-unsigned.tar.gz inputs/fantasy11-osx-unsigned.tar.gz
+    mv build/out/fantasy11-*.tar.gz build/out/fantasy11-*.dmg ../
     popd
 
 Build output expected:
 
-  1. source tarball (`hostmasternode-${VERSION}.tar.gz`)
-  2. linux 32-bit and 64-bit dist tarballs (`hostmasternode-${VERSION}-linux[32|64].tar.gz`)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (`hostmasternode-${VERSION}-win[32|64]-setup-unsigned.exe`, `hostmasternode-${VERSION}-win[32|64].zip`)
-  4. OS X unsigned installer and dist tarball (`hostmasternode-${VERSION}-osx-unsigned.dmg`, `hostmasternode-${VERSION}-osx64.tar.gz`)
+  1. source tarball (`fantasy11-${VERSION}.tar.gz`)
+  2. linux 32-bit and 64-bit dist tarballs (`fantasy11-${VERSION}-linux[32|64].tar.gz`)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (`fantasy11-${VERSION}-win[32|64]-setup-unsigned.exe`, `fantasy11-${VERSION}-win[32|64].zip`)
+  4. OS X unsigned installer and dist tarball (`fantasy11-${VERSION}-osx-unsigned.dmg`, `fantasy11-${VERSION}-osx64.tar.gz`)
   5. Gitian signatures (in `gitian.sigs/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
 
 ### Verify other gitian builders signatures to your own. (Optional)
 
 Add other gitian builders keys to your gpg keyring, and/or refresh keys.
 
-    gpg --import hostmasternode/contrib/gitian-keys/*.pgp
+    gpg --import fantasy11/contrib/gitian-keys/*.pgp
     gpg --refresh-keys
 
 Verify the signatures
 
     pushd ./gitian-builder
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../hostmasternode/contrib/gitian-descriptors/gitian-linux.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../hostmasternode/contrib/gitian-descriptors/gitian-win.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../hostmasternode/contrib/gitian-descriptors/gitian-osx.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../fantasy11/contrib/gitian-descriptors/gitian-linux.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../fantasy11/contrib/gitian-descriptors/gitian-win.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../fantasy11/contrib/gitian-descriptors/gitian-osx.yml
     popd
 
 ### Next steps:
@@ -172,25 +172,25 @@ Commit your signature to gitian.sigs:
 Wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [hostmasternode-detached-sigs](https://github.com/hostmasternodepay/hostmasternode-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [fantasy11-detached-sigs](https://github.com/fantasy11pay/fantasy11-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../hostmasternode/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../hostmasternode/contrib/gitian-descriptors/gitian-osx-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../hostmasternode/contrib/gitian-descriptors/gitian-osx-signer.yml
-    mv build/out/hostmasternode-osx-signed.dmg ../hostmasternode-${VERSION}-osx.dmg
+    ./bin/gbuild -i --commit signature=v${VERSION} ../fantasy11/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../fantasy11/contrib/gitian-descriptors/gitian-osx-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../fantasy11/contrib/gitian-descriptors/gitian-osx-signer.yml
+    mv build/out/fantasy11-osx-signed.dmg ../fantasy11-${VERSION}-osx.dmg
     popd
 
 Create (and optionally verify) the signed Windows binaries:
 
     pushd ./gitian-builder
-    ./bin/gbuild -i --commit signature=v${VERSION} ../hostmasternode/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../hostmasternode/contrib/gitian-descriptors/gitian-win-signer.yml
-    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../hostmasternode/contrib/gitian-descriptors/gitian-win-signer.yml
-    mv build/out/hostmasternode-*win64-setup.exe ../hostmasternode-${VERSION}-win64-setup.exe
-    mv build/out/hostmasternode-*win32-setup.exe ../hostmasternode-${VERSION}-win32-setup.exe
+    ./bin/gbuild -i --commit signature=v${VERSION} ../fantasy11/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../fantasy11/contrib/gitian-descriptors/gitian-win-signer.yml
+    ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../fantasy11/contrib/gitian-descriptors/gitian-win-signer.yml
+    mv build/out/fantasy11-*win64-setup.exe ../fantasy11-${VERSION}-win64-setup.exe
+    mv build/out/fantasy11-*win32-setup.exe ../fantasy11-${VERSION}-win32-setup.exe
     popd
 
 Commit your signature for the signed OS X/Windows binaries:
@@ -212,23 +212,23 @@ sha256sum * > SHA256SUMS
 
 The list of files should be:
 ```
-hostmasternode-${VERSION}-aarch64-linux-gnu.tar.gz
-hostmasternode-${VERSION}-arm-linux-gnueabihf.tar.gz
-hostmasternode-${VERSION}-i686-pc-linux-gnu.tar.gz
-hostmasternode-${VERSION}-x86_64-linux-gnu.tar.gz
-hostmasternode-${VERSION}-osx64.tar.gz
-hostmasternode-${VERSION}-osx.dmg
-hostmasternode-${VERSION}.tar.gz
-hostmasternode-${VERSION}-win32-setup.exe
-hostmasternode-${VERSION}-win32.zip
-hostmasternode-${VERSION}-win64-setup.exe
-hostmasternode-${VERSION}-win64.zip
+fantasy11-${VERSION}-aarch64-linux-gnu.tar.gz
+fantasy11-${VERSION}-arm-linux-gnueabihf.tar.gz
+fantasy11-${VERSION}-i686-pc-linux-gnu.tar.gz
+fantasy11-${VERSION}-x86_64-linux-gnu.tar.gz
+fantasy11-${VERSION}-osx64.tar.gz
+fantasy11-${VERSION}-osx.dmg
+fantasy11-${VERSION}.tar.gz
+fantasy11-${VERSION}-win32-setup.exe
+fantasy11-${VERSION}-win32.zip
+fantasy11-${VERSION}-win64-setup.exe
+fantasy11-${VERSION}-win64.zip
 ```
 The `*-debug*` files generated by the gitian build contain debug symbols
 for troubleshooting by developers. It is assumed that anyone that is interested
 in debugging can run gitian to generate the files for themselves. To avoid
 end-user confusion about which file to pick, as well as save storage
-space *do not upload these to the hostmasternode.com server*.
+space *do not upload these to the fantasy11.com server*.
 
 - GPG-sign it, delete the unsigned file:
 ```
@@ -238,20 +238,20 @@ rm SHA256SUMS
 (the digest algorithm is forced to sha256 to avoid confusion of the `Hash:` header that GPG adds with the SHA256 used for the files)
 Note: check that SHA256SUMS itself doesn't end up in SHA256SUMS, which is a spurious/nonsensical entry.
 
-- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the hostmasternode.com server
+- Upload zips and installers, as well as `SHA256SUMS.asc` from last step, to the fantasy11.com server
 
-- Update hostmasternode.com
+- Update fantasy11.com
 
 - Announce the release:
 
-  - Release on Hostmasternode forum: https://www.hostmasternode.com/forum/topic/official-announcements.54/
+  - Release on Fantasy11 forum: https://www.fantasy11.com/forum/topic/official-announcements.54/
 
-  - Optionally Discord, twitter, reddit /r/Hostmasternodepay, ... but this will usually sort out itself
+  - Optionally Discord, twitter, reddit /r/Fantasy11pay, ... but this will usually sort out itself
 
-  - Notify flare so that he can start building [the PPAs](https://launchpad.net/~hostmasternode.com/+archive/ubuntu/hostmasternode)
+  - Notify flare so that he can start building [the PPAs](https://launchpad.net/~fantasy11.com/+archive/ubuntu/fantasy11)
 
   - Archive release notes for the new version to `doc/release-notes/` (branch `master` and branch of the release)
 
-  - Create a [new GitHub release](https://github.com/hostmasternodepay/hostmasternode/releases/new) with a link to the archived release notes.
+  - Create a [new GitHub release](https://github.com/fantasy11pay/fantasy11/releases/new) with a link to the archived release notes.
 
   - Celebrate

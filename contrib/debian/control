@@ -1,8 +1,8 @@
-Source: hostmasternode
+Source: fantasy11
 Section: utils
 Priority: optional
-Maintainer: Holger Schinzel <holger@hostmasternode.com>
-Uploaders: Holger Schinzel <holger@hostmasternode.com>
+Maintainer: Holger Schinzel <holger@fantasy11.com>
+Uploaders: Holger Schinzel <holger@fantasy11.com>
 Build-Depends: debhelper,
  devscripts,
  automake,
@@ -26,45 +26,45 @@ Build-Depends: debhelper,
  python,
  libzmq3-dev
 Standards-Version: 3.9.2
-Homepage: https://www.hostmasternode.com/
-Vcs-Git: git://github.com/hostmasternodepay/hostmasternode.git
-Vcs-Browser: https://github.com/hostmasternodepay/hostmasternode
+Homepage: https://www.fantasy11.com/
+Vcs-Git: git://github.com/fantasy11pay/fantasy11.git
+Vcs-Browser: https://github.com/fantasy11pay/fantasy11
 
-Package: hostmasternoded
+Package: fantasy11d
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
- Hostmasternode is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. Hostmasternode uses peer-to-peer
+ Fantasy11 is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Fantasy11 uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. Hostmasternode Core
+ and issuing money are carried out collectively by the network. Fantasy11 Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides the daemon, hostmasternoded, and the CLI tool
- hostmasternode-cli to interact with the daemon.
+ This package provides the daemon, fantasy11d, and the CLI tool
+ fantasy11-cli to interact with the daemon.
 
-Package: hostmasternode-qt
+Package: fantasy11-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- Hostmasternode is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. Hostmasternode uses peer-to-peer
+ Fantasy11 is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Fantasy11 uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. Hostmasternode Core
+ and issuing money are carried out collectively by the network. Fantasy11 Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides Hostmasternode-Qt, a GUI for Hostmasternode based on Qt.
+ This package provides Fantasy11-Qt, a GUI for Fantasy11 based on Qt.
 
-Package: hostmasternode-tx
+Package: fantasy11-tx
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer digital currency - standalone transaction tool
- Hostmasternode is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. Hostmasternode uses peer-to-peer
+ Fantasy11 is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Fantasy11 uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. Hostmasternode Core
+ and issuing money are carried out collectively by the network. Fantasy11 Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides hostmasternode-tx, a command-line transaction creation
- tool which can be used without a hostmasternode daemon.  Some means of
+ This package provides fantasy11-tx, a command-line transaction creation
+ tool which can be used without a fantasy11 daemon.  Some means of
  exchanging minimal transaction data with peers is still required.

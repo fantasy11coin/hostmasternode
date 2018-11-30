@@ -29,16 +29,16 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>Hostmasternode-Qt</string>
+  <string>Fantasy11-Qt</string>
   
   <key>CFBundleName</key>
-  <string>Hostmasternode-Qt</string>
+  <string>Fantasy11-Qt</string>
 
   <key>LSHasLocalizedDisplayName</key>
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>org.hostmasternode.Hostmasternode-Qt</string>
+  <string>org.fantasy11.Fantasy11-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -46,10 +46,10 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>org.hostmasternode.HostmasternodePayment</string>
+      <string>org.fantasy11.Fantasy11Payment</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>hostmasternode</string>
+        <string>fantasy11</string>
       </array>
     </dict>
   </array>
@@ -58,9 +58,9 @@
   <array>
     <dict>
       <key>UTTypeIdentifier</key>
-      <string>org.hostmasternode.paymentrequest</string>
+      <string>org.fantasy11.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>Hostmasternode payment request</string>
+      <string>Fantasy11 payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>
@@ -68,10 +68,10 @@
       <key>UTTypeTagSpecification</key>
       <dict>
         <key>public.mime-type</key>
-        <string>application/x-hostmasternode-payment-request</string>
+        <string>application/x-fantasy11-payment-request</string>
         <key>public.filename-extension</key>
         <array>
-          <string>hostmasternodepaymentrequest</string>
+          <string>fantasy11paymentrequest</string>
         </array>
       </dict>
     </dict>
@@ -84,7 +84,7 @@
       <string>Editor</string>
       <key>LSItemContentTypes</key>
       <array>
-        <string>org.hostmasternode.paymentrequest</string>
+        <string>org.fantasy11.paymentrequest</string>
       </array>
       <key>LSHandlerRank</key>
       <string>Owner</string>

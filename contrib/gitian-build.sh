@@ -17,7 +17,7 @@ osx=true
 SIGNER=
 VERSION=
 commit=false
-url=https://github.com/hostmasternodepay/hostmasternode
+url=https://github.com/fantasy11pay/fantasy11
 proc=2
 mem=2000
 lxc=true
@@ -32,7 +32,7 @@ commitFiles=true
 read -d '' usage <<- EOF
 Usage: $scriptName [-c|u|v|b|s|B|o|h|j|m|] signer version
 
-Run this script from the directory containing the hostmasternode, gitian-builder, gitian.sigs, and hostmasternode-detached-sigs.
+Run this script from the directory containing the fantasy11, gitian-builder, gitian.sigs, and fantasy11-detached-sigs.
 
 Arguments:
 signer          GPG signer to sign each build assert file
@@ -40,7 +40,7 @@ version		Version number, commit, or branch to build. If building a commit or bra
 
 Options:
 -c|--commit	Indicate that the version argument is for a commit or branch
--u|--url	Specify the URL of the repository. Default is https://github.com/hostmasternodepay/hostmasternode
+-u|--url	Specify the URL of the repository. Default is https://github.com/fantasy11pay/fantasy11
 -v|--verify 	Verify the gitian build
 -b|--build	Do a gitian build
 -s|--sign	Make signed binaries for Windows and Mac OSX
@@ -249,8 +249,8 @@ echo ${COMMIT}
 if [[ $setup = true ]]
 then
     sudo apt-get install ruby apache2 git apt-cacher-ng python-vm-builder qemu-kvm qemu-utils
-    git clone https://github.com/hostmasternodepay/gitian.sigs.git
-    git clone https://github.com/hostmasternodepay/hostmasternode-detached-sigs.git
+    git clone https://github.com/fantasy11pay/gitian.sigs.git
+    git clone https://github.com/fantasy11pay/fantasy11-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     pushd ./gitian-builder
     if [[ -n "$USE_LXC" ]]
@@ -268,7 +268,7 @@ then
 fi
 
 # Set up build
-pushd ./hostmasternode
+pushd ./fantasy11
 git fetch
 git checkout ${COMMIT}
 popd
@@ -277,7 +277,7 @@ popd
 if [[ $build = true ]]
 then
 	# Make output folder
-	mkdir -p ./hostmasternodecore-binaries/${VERSION}
+	mkdir -p ./fantasy11core-binaries/${VERSION}
 	
 	# Build Dependencies
 	echo ""
@@ -287,7 +287,7 @@ then
 	mkdir -p inputs
 	wget -N -P inputs $osslPatchUrl
 	wget -N -P inputs $osslTarUrl
-	make -C ../hostmasternode/depends download SOURCES_PATH=`pwd`/cache/common
+	make -C ../fantasy11/depends download SOURCES_PATH=`pwd`/cache/common
 
 	# Linux
 	if [[ $linux = true ]]
@@ -295,9 +295,9 @@ then
             echo ""
 	    echo "Compiling ${VERSION} Linux"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit hostmasternode=${COMMIT} --url hostmasternode=${url} ../hostmasternode/contrib/gitian-descriptors/gitian-linux.yml
-	    ./bin/gsign -p "$signProg" --signer "$SIGNER" --release ${VERSION}-linux --destination ../gitian.sigs/ ../hostmasternode/contrib/gitian-descriptors/gitian-linux.yml
-	    mv build/out/hostmasternodecore-*.tar.gz build/out/src/hostmasternodecore-*.tar.gz ../hostmasternodecore-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit fantasy11=${COMMIT} --url fantasy11=${url} ../fantasy11/contrib/gitian-descriptors/gitian-linux.yml
+	    ./bin/gsign -p "$signProg" --signer "$SIGNER" --release ${VERSION}-linux --destination ../gitian.sigs/ ../fantasy11/contrib/gitian-descriptors/gitian-linux.yml
+	    mv build/out/fantasy11core-*.tar.gz build/out/src/fantasy11core-*.tar.gz ../fantasy11core-binaries/${VERSION}
 	fi
 	# Windows
 	if [[ $windows = true ]]
@@ -305,10 +305,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit hostmasternode=${COMMIT} --url hostmasternode=${url} ../hostmasternode/contrib/gitian-descriptors/gitian-win.yml
-	    ./bin/gsign -p "$signProg" --signer "$SIGNER" --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../hostmasternode/contrib/gitian-descriptors/gitian-win.yml
-	    mv build/out/hostmasternodecore-*-win-unsigned.tar.gz inputs/hostmasternodecore-win-unsigned.tar.gz
-	    mv build/out/hostmasternodecore-*.zip build/out/hostmasternodecore-*.exe ../hostmasternodecore-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit fantasy11=${COMMIT} --url fantasy11=${url} ../fantasy11/contrib/gitian-descriptors/gitian-win.yml
+	    ./bin/gsign -p "$signProg" --signer "$SIGNER" --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../fantasy11/contrib/gitian-descriptors/gitian-win.yml
+	    mv build/out/fantasy11core-*-win-unsigned.tar.gz inputs/fantasy11core-win-unsigned.tar.gz
+	    mv build/out/fantasy11core-*.zip build/out/fantasy11core-*.exe ../fantasy11core-binaries/${VERSION}
 	fi
 	# Mac OSX
 	if [[ $osx = true ]]
@@ -316,10 +316,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit hostmasternode=${COMMIT} --url hostmasternode=${url} ../hostmasternode/contrib/gitian-descriptors/gitian-osx.yml
-	    ./bin/gsign -p "$signProg" --signer "$SIGNER" --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../hostmasternode/contrib/gitian-descriptors/gitian-osx.yml
-	    mv build/out/hostmasternodecore-*-osx-unsigned.tar.gz inputs/hostmasternodecore-osx-unsigned.tar.gz
-	    mv build/out/hostmasternodecore-*.tar.gz build/out/hostmasternodecore-*.dmg ../hostmasternodecore-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit fantasy11=${COMMIT} --url fantasy11=${url} ../fantasy11/contrib/gitian-descriptors/gitian-osx.yml
+	    ./bin/gsign -p "$signProg" --signer "$SIGNER" --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../fantasy11/contrib/gitian-descriptors/gitian-osx.yml
+	    mv build/out/fantasy11core-*-osx-unsigned.tar.gz inputs/fantasy11core-osx-unsigned.tar.gz
+	    mv build/out/fantasy11core-*.tar.gz build/out/fantasy11core-*.dmg ../fantasy11core-binaries/${VERSION}
 	fi
 	popd
 
@@ -346,27 +346,27 @@ then
 	echo ""
 	echo "Verifying v${VERSION} Linux"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../hostmasternode/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../fantasy11/contrib/gitian-descriptors/gitian-linux.yml
 	# Windows
 	echo ""
 	echo "Verifying v${VERSION} Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../hostmasternode/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../fantasy11/contrib/gitian-descriptors/gitian-win.yml
 	# Mac OSX	
 	echo ""
 	echo "Verifying v${VERSION} Mac OSX"
 	echo ""	
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../hostmasternode/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../fantasy11/contrib/gitian-descriptors/gitian-osx.yml
 	# Signed Windows
 	echo ""
 	echo "Verifying v${VERSION} Signed Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../hostmasternode/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../fantasy11/contrib/gitian-descriptors/gitian-osx-signer.yml
 	# Signed Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Signed Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../hostmasternode/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../fantasy11/contrib/gitian-descriptors/gitian-osx-signer.yml
 	popd
 fi
 
@@ -381,10 +381,10 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../hostmasternode/contrib/gitian-descriptors/gitian-win-signer.yml
-	    ./bin/gsign -p "$signProg" --signer "$SIGNER" --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../hostmasternode/contrib/gitian-descriptors/gitian-win-signer.yml
-	    mv build/out/hostmasternodecore-*win64-setup.exe ../hostmasternodecore-binaries/${VERSION}
-	    mv build/out/hostmasternodecore-*win32-setup.exe ../hostmasternodecore-binaries/${VERSION}
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../fantasy11/contrib/gitian-descriptors/gitian-win-signer.yml
+	    ./bin/gsign -p "$signProg" --signer "$SIGNER" --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../fantasy11/contrib/gitian-descriptors/gitian-win-signer.yml
+	    mv build/out/fantasy11core-*win64-setup.exe ../fantasy11core-binaries/${VERSION}
+	    mv build/out/fantasy11core-*win32-setup.exe ../fantasy11core-binaries/${VERSION}
 	fi
 	# Sign Mac OSX
 	if [[ $osx = true ]]
@@ -392,9 +392,9 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../hostmasternode/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    ./bin/gsign -p "$signProg" --signer "$SIGNER" --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../hostmasternode/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    mv build/out/hostmasternodecore-osx-signed.dmg ../hostmasternodecore-binaries/${VERSION}/hostmasternodecore-${VERSION}-osx.dmg
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../fantasy11/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    ./bin/gsign -p "$signProg" --signer "$SIGNER" --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../fantasy11/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    mv build/out/fantasy11core-osx-signed.dmg ../fantasy11core-binaries/${VERSION}/fantasy11core-${VERSION}-osx.dmg
 	fi
 	popd
 

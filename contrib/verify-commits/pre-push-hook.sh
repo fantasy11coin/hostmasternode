@@ -3,7 +3,7 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-if ! [[ "$2" =~ ^(git@)?(www.)?github.com(:|/)hostmasternodepay/hostmasternode(.git)?$ ]]; then
+if ! [[ "$2" =~ ^(git@)?(www.)?github.com(:|/)fantasy11pay/fantasy11(.git)?$ ]]; then
     exit 0
 fi
 

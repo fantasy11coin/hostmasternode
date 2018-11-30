@@ -5,7 +5,7 @@
 #include "util.h"
 
 #include "support/allocators/secure.h"
-#include "test/test_hostmasternode.h"
+#include "test/test_fantasy11.h"
 
 #include <boost/test/unit_test.hpp>
 

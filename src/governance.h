@@ -1,11 +1,11 @@
-// Copyright (c) 2014-2017 The Hostmasternode Core developers
+// Copyright (c) 2014-2017 The Fantasy11 Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef GOVERNANCE_H
 #define GOVERNANCE_H
 
-//#define ENABLE_HMN_DEBUG
+//#define ENABLE_FANE_DEBUG
 
 #include "bloom.h"
 #include "cachemap.h"

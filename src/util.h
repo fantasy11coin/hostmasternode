@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Hostmasternode Core developers
+// Copyright (c) 2014-2017 The Fantasy11 Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,7 +12,7 @@
 #define BITCOIN_UTIL_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/hostmasternode-config.h"
+#include "config/fantasy11-config.h"
 #endif
 
 #include "compat.h"
@@ -35,14 +35,14 @@
 
 // Uncomment the following line to enable debugging messages
 // or enable on a per file basis prior to inclusion of util.h
-//#define ENABLE_HMN_DEBUG
-#ifdef ENABLE_HMN_DEBUG
+//#define ENABLE_FANE_DEBUG
+#ifdef ENABLE_FANE_DEBUG
 #define DBG( x ) x
 #else
 #define DBG( x ) 
 #endif
 
-//Hostmasternode only features
+//Fantasy11 only features
 
 extern bool fMasternodeMode;
 extern bool fLiteMode;
@@ -236,7 +236,7 @@ std::string GetThreadName();
  */
 template <typename Callable> void TraceThread(const char* name,  Callable func)
 {
-    std::string s = strprintf("hostmasternode-%s", name);
+    std::string s = strprintf("fantasy11-%s", name);
     RenameThread(s.c_str());
     try
     {

@@ -1,7 +1,7 @@
-// Copyright (c) 2014-2017 The Hostmasternode Core developers
+// Copyright (c) 2014-2017 The Fantasy11 Core developers
 // Distributed under the MIT software license, see the accompanying
-#ifndef HMN_HDCHAIN_H
-#define HMN_HDCHAIN_H
+#ifndef FANE_HDCHAIN_H
+#define FANE_HDCHAIN_H
 
 #include "key.h"
 #include "sync.h"
@@ -147,4 +147,4 @@ public:
     std::string GetKeyPath() const;
 };
 
-#endif // HMN_HDCHAIN_H
+#endif // FANE_HDCHAIN_H

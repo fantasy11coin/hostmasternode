@@ -1,21 +1,21 @@
 Shared Libraries
 ================
 
-## hostmasternodeconsensus
+## fantasy11consensus
 
-The purpose of this library is to make the verification functionality that is critical to Hostmasternode's consensus available to other applications, e.g. to language bindings.
+The purpose of this library is to make the verification functionality that is critical to Fantasy11's consensus available to other applications, e.g. to language bindings.
 
 ### API
 
-The interface is defined in the C header `hostmasternodeconsensus.h` located in  `src/script/hostmasternodeconsensus.h`.
+The interface is defined in the C header `fantasy11consensus.h` located in  `src/script/fantasy11consensus.h`.
 
 #### Version
 
-`hostmasternodeconsensus_version` returns an `unsigned int` with the API version *(currently at an experimental `0`)*.
+`fantasy11consensus_version` returns an `unsigned int` with the API version *(currently at an experimental `0`)*.
 
 #### Script Validation
 
-`hostmasternodeconsensus_verify_script` returns an `int` with the status of the verification. It will be `1` if the input script correctly spends the previous output `scriptPubKey`.
+`fantasy11consensus_verify_script` returns an `int` with the status of the verification. It will be `1` if the input script correctly spends the previous output `scriptPubKey`.
 
 ##### Parameters
 - `const unsigned char *scriptPubKey` - The previous output script that encumbers spending.
@@ -24,21 +24,21 @@ The interface is defined in the C header `hostmasternodeconsensus.h` located in 
 - `unsigned int txToLen` - The number of bytes for the `txTo`.
 - `unsigned int nIn` - The index of the input in `txTo` that spends the `scriptPubKey`.
 - `unsigned int flags` - The script validation flags *(see below)*.
-- `hostmasternodeconsensus_error* err` - Will have the error/success code for the operation *(see below)*.
+- `fantasy11consensus_error* err` - Will have the error/success code for the operation *(see below)*.
 
 ##### Script Flags
-- `hostmasternodeconsensus_SCRIPT_FLAGS_VERIFY_NONE`
-- `hostmasternodeconsensus_SCRIPT_FLAGS_VERIFY_P2SH` - Evaluate P2SH ([BIP16](https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki)) subscripts
-- `hostmasternodeconsensus_SCRIPT_FLAGS_VERIFY_DERSIG` - Enforce strict DER ([BIP66](https://github.com/bitcoin/bips/blob/master/bip-0066.mediawiki)) compliance
-- `hostmasternodeconsensus_SCRIPT_FLAGS_VERIFY_NULLDUMMY` - Enforce NULLDUMMY ([BIP147](https://github.com/bitcoin/bips/blob/master/bip-0147.mediawiki))
-- `hostmasternodeconsensus_SCRIPT_FLAGS_VERIFY_CHECKLOCKTIMEVERIFY` - Enable CHECKLOCKTIMEVERIFY ([BIP65](https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki))
-- `hostmasternodeconsensus_SCRIPT_FLAGS_VERIFY_CHECKSEQUENCEVERIFY` - Enable CHECKSEQUENCEVERIFY ([BIP112](https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki))
+- `fantasy11consensus_SCRIPT_FLAGS_VERIFY_NONE`
+- `fantasy11consensus_SCRIPT_FLAGS_VERIFY_P2SH` - Evaluate P2SH ([BIP16](https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki)) subscripts
+- `fantasy11consensus_SCRIPT_FLAGS_VERIFY_DERSIG` - Enforce strict DER ([BIP66](https://github.com/bitcoin/bips/blob/master/bip-0066.mediawiki)) compliance
+- `fantasy11consensus_SCRIPT_FLAGS_VERIFY_NULLDUMMY` - Enforce NULLDUMMY ([BIP147](https://github.com/bitcoin/bips/blob/master/bip-0147.mediawiki))
+- `fantasy11consensus_SCRIPT_FLAGS_VERIFY_CHECKLOCKTIMEVERIFY` - Enable CHECKLOCKTIMEVERIFY ([BIP65](https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki))
+- `fantasy11consensus_SCRIPT_FLAGS_VERIFY_CHECKSEQUENCEVERIFY` - Enable CHECKSEQUENCEVERIFY ([BIP112](https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki))
 
 ##### Errors
-- `hostmasternodeconsensus_ERR_OK` - No errors with input parameters *(see the return value of `hostmasternodeconsensus_verify_script` for the verification status)*
-- `hostmasternodeconsensus_ERR_TX_INDEX` - An invalid index for `txTo`
-- `hostmasternodeconsensus_ERR_TX_SIZE_MISMATCH` - `txToLen` did not match with the size of `txTo`
-- `hostmasternodeconsensus_ERR_DESERIALIZE` - An error deserializing `txTo`
+- `fantasy11consensus_ERR_OK` - No errors with input parameters *(see the return value of `fantasy11consensus_verify_script` for the verification status)*
+- `fantasy11consensus_ERR_TX_INDEX` - An invalid index for `txTo`
+- `fantasy11consensus_ERR_TX_SIZE_MISMATCH` - `txToLen` did not match with the size of `txTo`
+- `fantasy11consensus_ERR_DESERIALIZE` - An error deserializing `txTo`
 
 ### Example Implementations
 - [NBitcoin](https://github.com/NicolasDorier/NBitcoin/blob/master/NBitcoin/Script.cs#L814) (.NET Bindings)

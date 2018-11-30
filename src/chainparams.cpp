@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Hostmasternode Core developers
+// Copyright (c) 2014-2017 The Fantasy11 Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -125,30 +125,30 @@ public:
     CMainParams() {
     	strNetworkID = "main";
 
-    	    /*	  		bool fNegative;
-    	    	  		bool fOverflow;
-    	    	  		uint32_t i=0; */
+//    	    	  		bool fNegative;
+//    	    	  		bool fOverflow;
+//    	    	  		uint32_t i=0;
 
 
-    	    		genesis = CreateGenesisBlock(1533392426,3287516, 0x1e0ffff0, 1, 20 * COIN);
+    	    		genesis = CreateGenesisBlock(1533392426,185426, 0x1e0ffff0, 1, 0.75 * COIN);
 
-    	    /*			while (true) {
-    	    					genesis = CreateGenesisBlock(1533392426,i, 0x1e0ffff0, 1, 20 * COIN);
-    	    				arith_uint256 bnTarget;
-
-    	    				bnTarget.SetCompact(0x1e0ffff0, &fNegative, &fOverflow);
-    	    			if (UintToArith256(genesis.GetHash()) > bnTarget) {
-    	    				//	std::cout << " nonce not correct  \n";
-    	    				//	std::cout << i << " ";
-    	    				i++;
-    	    				}
-    	    				else {
-    	    					std::cout << " nonce found  " << i << "\n";
-    	    					std::cout << " genesis found  " <<  genesis.GetHash().ToString() << "\n";
-
-    	    							exit(-1);
-    	    				}
-    	    				} */
+//    	    			while (true) {
+//    	    					genesis = CreateGenesisBlock(1533392426,i, 0x1e0ffff0, 1, 0.75 * COIN);
+//    	    				arith_uint256 bnTarget;
+//
+//    	    				bnTarget.SetCompact(0x1e0ffff0, &fNegative, &fOverflow);
+//    	    			if (UintToArith256(genesis.GetHash()) > bnTarget) {
+//    	    				//	std::cout << " nonce not correct  \n";
+//    	    				//	std::cout << i << " ";
+//    	    				i++;
+//    	    				}
+//    	    				else {
+//    	    					std::cout << " nonce found  " << i << "\n";
+//    	    					std::cout << " genesis found  " <<  genesis.GetHash().ToString() << "\n";
+//
+//    	    							exit(-1);
+//    	    				}
+//    	    				}
 
     	    	        consensus.nSubsidyHalvingInterval = 1051200;
     	    	        consensus.nMasternodePaymentsStartBlock = 100;//262800;
@@ -171,8 +171,8 @@ public:
     	    	        consensus.BIP66Height = -1; // BIP66 activated on regtest (Used in rpc activation tests)
     	    	        consensus.DIP0001Height = 2000;
     	    	        consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 1
-    	    	        consensus.nPowTargetTimespan = 24 * 60 * 60; // Hostmasternode: 1 day
-    	    	        consensus.nPowTargetSpacing = 2 * 60; // Hostmasternode: 2.5 minutes
+    	    	        consensus.nPowTargetTimespan = 1 * 60 ; // Fantasy11: 1 minute
+    	    	        consensus.nPowTargetSpacing = 2 * 60; // Fantasy11: 2.5 minutes
     	    	        consensus.fPowAllowMinDifficultyBlocks = false;
     	    	        consensus.fPowNoRetargeting = false;
     	    	        consensus.nPowKGWHeight = 15200; // same as mainnet
@@ -198,10 +198,14 @@ public:
     	    	        // By default assume that the signatures in ancestors of this block are valid.
     	    	        consensus.defaultAssumeValid = uint256S("0x00");
 
-    	    	        pchMessageStart[0] = 0xfc;
-    	    	        pchMessageStart[1] = 0xc1;
-    	    	        pchMessageStart[2] = 0xb7;
-    	    	        pchMessageStart[3] = 0xdc;
+    	    	        //pchMessageStart[0] = 0xfc;
+    	    	        pchMessageStart[0] = 0xc2;
+    	    	        //pchMessageStart[1] = 0xc1;
+    	    	        pchMessageStart[1] = 0xd4;
+    	    	        //pchMessageStart[2] = 0xb7;
+    	    	        pchMessageStart[2] = 0xd9;
+    	    	        //pchMessageStart[3] = 0xdc;
+    	    	        pchMessageStart[3] = 0xac;
     	    	        nDefaultPort = 8232;
     	    	        nPruneAfterHeight = 1000;
 
@@ -209,10 +213,10 @@ public:
     	    	        consensus.hashGenesisBlock = genesis.GetHash();
     	    	        assert(
     	    	        				consensus.hashGenesisBlock
-    	    	        						== uint256S("00000121a30a3946b96d3fd5f42889f479f72d741b4a396daa46a0b2a5053598"));
-    	    	                vSeeds.push_back(CDNSSeedData("dnsseed.hmncoin.info", "dnsseed.hmncoin.info"));
-    	    	                vSeeds.push_back(CDNSSeedData("dnsseed.hmncoin.net", "dnsseed.hmncoin.net"));
-    	    	                vSeeds.push_back(CDNSSeedData("dnsseed.hmncoin.org", "dnsseed.hmncoin.org"));
+    	    	        						== uint256S("00000000d7c56ca2df65561b56e4534f48bae59450e0f27f5459919d2ad2702d"));
+    	    	                vSeeds.push_back(CDNSSeedData("dns1.fantasy11.xyz", "dns1.fantasy11.xyz"));
+    	    	                vSeeds.push_back(CDNSSeedData("dns2.fantasy11.xyz", "dns2.fantasy11.xyz"));
+    	    	                vSeeds.push_back(CDNSSeedData("dns3.fantasy11.xyz", "dns3.fantasy11.xyz"));
     	    	      //  assert(consensus.hashGenesisBlock == uint256S("0x000008ca1832a4baf228eb1553c03d3a2c8e02399550dd6ea8d65cec3ef23d2e"));
     	    	      //  assert(genesis.hashMerkleRoot == uint256S("0xe0028eb9648db56b1ac77cf090b99048a8007e2bb64b68f092c03c7f56a662c7"));
 
@@ -228,7 +232,7 @@ public:
     	    	        nFulfilledRequestExpireTime = 5*60; // fulfilled requests expire in 5 minutes
 
     	    	        // privKey: H1hgP7QS52vQeLk5oCjD2T1Dj3emCeRTz2gBkTcVAnANKWoVRxpj
-    	    	        strSporkAddress = "hRTnoz11USP3PNT1NSXnmZeFMKmzs4ETLc";
+    	    	        strSporkAddress = "f1Kccmo8zEsNie9je5chp3f43ThBBMw7zK";
 
     	    	        checkpointData = (CCheckpointData){
     	    	            boost::assign::map_list_of
@@ -241,21 +245,21 @@ public:
     	    	            0
     	    	        };
 
-    	    	        //  Hostmasternode addresses start with 'h'
+    	    	        //  Fantasy11 addresses start with 'h'
     	    	       // std::cout<< "test :" << base58Prefixes[PUBKEY_ADDRESS] ;
-    	    	        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,100);
-    	    	        //  Hostmasternode script addresses start with '8' or '9'
+    	    	        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,94);
+    	    	        //  Fantasy11 script addresses start with '8' or '9'
     	    	        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
 
 
     	    	        //  private keys start with 'H'
-    	    	        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,108);
-    	    	        //  Hostmasternode BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+    	    	        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,35);
+    	    	        //  Fantasy11 BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
     	    	        base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-    	    	        //  Hostmasternode BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+    	    	        //  Fantasy11 BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
     	    	        base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
 
-    	    	        //  Hostmasternode BIP44 coin type is '1' (All coin's testnet default)
+    	    	        //  Fantasy11 BIP44 coin type is '1' (All coin's testnet default)
     	    	        nExtCoinType = 1;
     }
 
@@ -290,8 +294,8 @@ public:
         consensus.BIP66Height = 2075; // 0000002acdd29a14583540cb72e1c5cc83783560e38fa7081495d474fe1671f7
         consensus.DIP0001Height = 5500;
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 20
-        consensus.nPowTargetTimespan = 24 * 60 * 60; // Hostmasternode: 1 day
-        consensus.nPowTargetSpacing = 2* 60; // Hostmasternode: 2.5 minutes
+        consensus.nPowTargetTimespan = 24 * 60 * 60; // Fantasy11: 1 day
+        consensus.nPowTargetSpacing = 2* 60; // Fantasy11: 2.5 minutes
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.nPowKGWHeight = 4001; // nPowKGWHeight >= nPowDGWHeight means "no KGW"
@@ -345,21 +349,21 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.push_back(CDNSSeedData("hostmasternodedot.io",  "testnet-seed.hostmasternodedot.io"));
+        vSeeds.push_back(CDNSSeedData("fantasy11dot.io",  "testnet-seed.fantasy11dot.io"));
         vSeeds.push_back(CDNSSeedData("masternode.io", "test.dnsseed.masternode.io"));
 
-        // Testnet Hostmasternode addresses start with 'y'
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
-        // Testnet Hostmasternode script addresses start with '8' or '9'
+        // Testnet Fantasy11 addresses start with 'y'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,94);
+        // Testnet Fantasy11 script addresses start with '8' or '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
         // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        // Testnet Hostmasternode BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,35);
+        // Testnet Fantasy11 BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Testnet Hostmasternode BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+        // Testnet Fantasy11 BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
 
-        // Testnet Hostmasternode BIP44 coin type is '1' (All coin's testnet default)
+        // Testnet Fantasy11 BIP44 coin type is '1' (All coin's testnet default)
         nExtCoinType = 1;
 
         fMiningRequiresPeers = true;
@@ -370,9 +374,9 @@ public:
         fAllowMultiplePorts = false;
 
         nPoolMaxTransactions = 3;
-        nFulfilledRequestExpireTime = 5*60; // fulfilled requests expire in 5 minutes
+       nFulfilledRequestExpireTime = 5*60; // fulfilled requests expire in 5 minutes
 
-        strSporkAddress = "yjPtiKh2uwk3bDutTEA2q9mCtXyiZRWn55";
+        strSporkAddress = "f1Kccmo8zEsNie9je5chp3f43ThBBMw7zK";
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
@@ -421,8 +425,8 @@ public:
         consensus.BIP66Height = 1; // BIP66 activated immediately on devnet
         consensus.DIP0001Height = 2; // DIP0001 activated immediately on devnet
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 1
-        consensus.nPowTargetTimespan = 24 * 60 * 60; // Hostmasternode: 1 day
-        consensus.nPowTargetSpacing = 2* 60; // Hostmasternode: 2.5 minutes
+        consensus.nPowTargetTimespan = 24 * 60 * 60; // Fantasy11: 1 day
+        consensus.nPowTargetSpacing = 2* 60; // Fantasy11: 2.5 minutes
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.nPowKGWHeight = 4001; // nPowKGWHeight >= nPowDGWHeight means "no KGW"
@@ -478,20 +482,20 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        //vSeeds.push_back(CDNSSeedData("hostmasternodeevo.org",  "devnet-seed.hostmasternodeevo.org"));
+        //vSeeds.push_back(CDNSSeedData("fantasy11evo.org",  "devnet-seed.fantasy11evo.org"));
 
-        // Testnet Hostmasternode addresses start with 'y'
+        // Testnet Fantasy11 addresses start with 'y'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
-        // Testnet Hostmasternode script addresses start with '8' or '9'
+        // Testnet Fantasy11 script addresses start with '8' or '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
         // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        // Testnet Hostmasternode BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+        // Testnet Fantasy11 BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Testnet Hostmasternode BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+        // Testnet Fantasy11 BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
 
-        // Testnet Hostmasternode BIP44 coin type is '1' (All coin's testnet default)
+        // Testnet Fantasy11 BIP44 coin type is '1' (All coin's testnet default)
         nExtCoinType = 1;
 
         fMiningRequiresPeers = true;
@@ -550,8 +554,8 @@ public:
         consensus.BIP66Height = 1251; // BIP66 activated on regtest (Used in rpc activation tests)
         consensus.DIP0001Height = 2000;
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 1
-        consensus.nPowTargetTimespan = 24 * 60 * 60; // Hostmasternode: 1 day
-        consensus.nPowTargetSpacing = 2.5 * 60; // Hostmasternode: 2.5 minutes
+        consensus.nPowTargetTimespan = 24 * 60 * 60; // Fantasy11: 1 day
+        consensus.nPowTargetSpacing = 2.5 * 60; // Fantasy11: 2.5 minutes
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
         consensus.nPowKGWHeight = 15200; // same as mainnet
@@ -617,18 +621,18 @@ public:
             0
         };
 
-        // Regtest Hostmasternode addresses start with 'y'
+        // Regtest Fantasy11 addresses start with 'y'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,140);
-        // Regtest Hostmasternode script addresses start with '8' or '9'
+        // Regtest Fantasy11 script addresses start with '8' or '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,19);
         // Regtest private keys start with '9' or 'c' (Bitcoin defaults)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        // Regtest Hostmasternode BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+        // Regtest Fantasy11 BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Regtest Hostmasternode BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+        // Regtest Fantasy11 BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
 
-        // Regtest Hostmasternode BIP44 coin type is '1' (All coin's testnet default)
+        // Regtest Fantasy11 BIP44 coin type is '1' (All coin's testnet default)
         nExtCoinType = 1;
    }
 

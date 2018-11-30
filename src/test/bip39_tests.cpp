@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017 The Hostmasternode Core developers
+// Copyright (c) 2014-2017 The Fantasy11 Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,7 +7,7 @@
 #include "key.h"
 #include "util.h"
 #include "utilstrencodings.h"
-#include "test/test_hostmasternode.h"
+#include "test/test_fantasy11.h"
 #include "bip39.h"
 
 #include <boost/test/unit_test.hpp>

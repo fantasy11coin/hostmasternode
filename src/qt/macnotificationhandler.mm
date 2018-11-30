@@ -13,7 +13,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"org.hostmasternode.Hostmasternode-Qt";
+        return @"org.fantasy11.Fantasy11-Qt";
     } else {
         return [self __bundleIdentifier];
     }

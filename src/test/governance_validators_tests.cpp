@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017 The Hostmasternode Core developers
+// Copyright (c) 2014-2017 The Fantasy11 Core developers
 
 #include "governance-validators.h"
 #include "utilstrencodings.h"
@@ -6,7 +6,7 @@
 #include "data/proposals_valid.json.h"
 #include "data/proposals_invalid.json.h"
 
-#include "test/test_hostmasternode.h"
+#include "test/test_fantasy11.h"
 
 #include <iostream>
 #include <fstream>

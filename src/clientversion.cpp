@@ -10,10 +10,10 @@
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both hostmasternoded and hostmasternode-qt, to make it harder for attackers to
+ * for both fantasy11d and fantasy11-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("Hostmasternode Core");
+const std::string CLIENT_NAME("Fantasy11 Core");
 
 /**
  * Client version number
