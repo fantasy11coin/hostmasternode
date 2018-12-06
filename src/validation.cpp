@@ -1288,27 +1288,9 @@ NOTE:   unlike bitcoin we are using PREVIOUS block height here,
 CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly)
 	{
 
-	 if (nPrevHeight <= 100) {
-		 return 4200 * COIN;
-	 }
-	 if (  (nPrevHeight > 100)   && (nPrevHeight <= 1051200)) {
-		 return 10 *COIN;
-	 }
 
 
-	 int i = 0;
-     int halvings = nPrevHeight / consensusParams.nSubsidyHalvingInterval;
-		    // Force block reward to zero when right shift is undefined.
-     if (halvings >= 64)
-		return 0;
-
-	 CAmount nSubsidy = 20 * COIN;
-		    // Subsidy is cut in half every 210,000 blocks which will occur approximately every 4 years.
-	 for (i=0;i<halvings;i++) {
-		 nSubsidy =   nSubsidy * 0.6;
-	 }
-
-     return nSubsidy;
+     return 0.75 * COIN;
 
 
 	}
