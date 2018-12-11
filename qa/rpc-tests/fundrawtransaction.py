@@ -206,9 +206,9 @@ class RawTransactionsTest(BitcoinTestFramework):
 
         try:
             self.nodes[2].fundrawtransaction(rawtx, {'changeAddress': 'foobar'})
-            raise AssertionError("Accepted invalid fantasy11 address")
+            raise AssertionError("Accepted invalid betfint address")
         except JSONRPCException as e:
-            assert("changeAddress must be a valid fantasy11 address" in e.error['message'])
+            assert("changeAddress must be a valid betfint address" in e.error['message'])
 
 
         ############################################################
@@ -449,7 +449,7 @@ class RawTransactionsTest(BitcoinTestFramework):
         mSigObj = self.nodes[2].addmultisigaddress(2, [addr1Obj['pubkey'], addr2Obj['pubkey']])
 
 
-        # send 12 FANE to msig addr
+        # send 12 BETFE to msig addr
         txId = self.nodes[0].sendtoaddress(mSigObj, 12)
         self.sync_all()
         self.nodes[1].generate(1)

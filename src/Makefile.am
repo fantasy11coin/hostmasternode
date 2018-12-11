@@ -1,5 +1,5 @@
 # Copyright (c) 2013-2016 The Bitcoin Core developers
-# Copyright (c) 2014-2018 The Fantasy11 Core developers
+# Copyright (c) 2014-2018 The Betfint Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -25,23 +25,23 @@ BITCOIN_INCLUDES=-I$(builddir) -I$(builddir)/obj $(BDB_CPPFLAGS) $(BOOST_CPPFLAG
 BITCOIN_INCLUDES += -I$(srcdir)/secp256k1/include
 BITCOIN_INCLUDES += $(UNIVALUE_CFLAGS)
 
-LIBBITCOIN_SERVER=libfantasy11_server.a
-LIBBITCOIN_COMMON=libfantasy11_common.a
-LIBBITCOIN_CONSENSUS=libfantasy11_consensus.a
-LIBBITCOIN_CLI=libfantasy11_cli.a
-LIBBITCOIN_UTIL=libfantasy11_util.a
-LIBBITCOIN_CRYPTO=crypto/libfantasy11_crypto.a
-LIBBITCOINQT=qt/libfantasy11qt.a
+LIBBITCOIN_SERVER=libbetfint_server.a
+LIBBITCOIN_COMMON=libbetfint_common.a
+LIBBITCOIN_CONSENSUS=libbetfint_consensus.a
+LIBBITCOIN_CLI=libbetfint_cli.a
+LIBBITCOIN_UTIL=libbetfint_util.a
+LIBBITCOIN_CRYPTO=crypto/libbetfint_crypto.a
+LIBBITCOINQT=qt/libbetfintqt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
 if ENABLE_ZMQ
-LIBBITCOIN_ZMQ=libfantasy11_zmq.a
+LIBBITCOIN_ZMQ=libbetfint_zmq.a
 endif
 if BUILD_BITCOIN_LIBS
-LIBBITCOINCONSENSUS=libfantasy11consensus.la
+LIBBITCOINCONSENSUS=libbetfintconsensus.la
 endif
 if ENABLE_WALLET
-LIBBITCOIN_WALLET=libfantasy11_wallet.a
+LIBBITCOIN_WALLET=libbetfint_wallet.a
 endif
 
 $(LIBSECP256K1): $(wildcard secp256k1/src/*) $(wildcard secp256k1/include/*)
@@ -66,15 +66,15 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += fantasy11d
+  bin_PROGRAMS += betfintd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += fantasy11-cli fantasy11-tx
+  bin_PROGRAMS += betfint-cli betfint-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# fantasy11 core #
+# betfint core #
 BITCOIN_CORE_H = \
   addrdb.h \
   activemasternode.h \
@@ -201,12 +201,12 @@ obj/build.h: FORCE
 	@$(MKDIR_P) $(builddir)/obj
 	@$(top_srcdir)/share/genbuild.sh $(abs_top_builddir)/src/obj/build.h \
 	  $(abs_top_srcdir)
-libfantasy11_util_a-clientversion.$(OBJEXT): obj/build.h
+libbetfint_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between fantasy11d and fantasy11-qt
-libfantasy11_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
-libfantasy11_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libfantasy11_server_a_SOURCES = \
+# server: shared between betfintd and betfint-qt
+libbetfint_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
+libbetfint_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libbetfint_server_a_SOURCES = \
   activemasternode.cpp \
   addrman.cpp \
   addrdb.cpp \
@@ -268,20 +268,20 @@ libfantasy11_server_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 if ENABLE_ZMQ
-libfantasy11_zmq_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(ZMQ_CFLAGS)
-libfantasy11_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libfantasy11_zmq_a_SOURCES = \
+libbetfint_zmq_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(ZMQ_CFLAGS)
+libbetfint_zmq_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libbetfint_zmq_a_SOURCES = \
   zmq/zmqabstractnotifier.cpp \
   zmq/zmqnotificationinterface.cpp \
   zmq/zmqpublishnotifier.cpp
 endif
 
 
-# wallet: shared between fantasy11d and fantasy11-qt, but only linked
+# wallet: shared between betfintd and betfint-qt, but only linked
 # when wallet enabled
-libfantasy11_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libfantasy11_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libfantasy11_wallet_a_SOURCES = \
+libbetfint_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libbetfint_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libbetfint_wallet_a_SOURCES = \
   keepass.cpp \
   privatesend-client.cpp \
   privatesend-util.cpp \
@@ -295,9 +295,9 @@ libfantasy11_wallet_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 # crypto primitives library
-crypto_libfantasy11_crypto_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_CONFIG_INCLUDES) $(PIC_FLAGS)
-crypto_libfantasy11_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS) $(PIC_FLAGS)
-crypto_libfantasy11_crypto_a_SOURCES = \
+crypto_libbetfint_crypto_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_CONFIG_INCLUDES) $(PIC_FLAGS)
+crypto_libbetfint_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS) $(PIC_FLAGS)
+crypto_libbetfint_crypto_a_SOURCES = \
   crypto/aes.cpp \
   crypto/aes.h \
   crypto/common.h \
@@ -316,7 +316,7 @@ crypto_libfantasy11_crypto_a_SOURCES = \
   crypto/sha512.h
 
 # x11
-crypto_libfantasy11_crypto_a_SOURCES += \
+crypto_libbetfint_crypto_a_SOURCES += \
   crypto/blake.c \
   crypto/bmw.c \
   crypto/cubehash.c \
@@ -342,9 +342,9 @@ crypto_libfantasy11_crypto_a_SOURCES += \
   crypto/sph_types.h
 
 # consensus: shared between all executables that validate any consensus rules.
-libfantasy11_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libfantasy11_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libfantasy11_consensus_a_SOURCES = \
+libbetfint_consensus_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libbetfint_consensus_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libbetfint_consensus_a_SOURCES = \
   amount.h \
   arith_uint256.cpp \
   arith_uint256.h \
@@ -361,7 +361,7 @@ libfantasy11_consensus_a_SOURCES = \
   primitives/transaction.h \
   pubkey.cpp \
   pubkey.h \
-  script/fantasy11consensus.cpp \
+  script/betfintconsensus.cpp \
   script/interpreter.cpp \
   script/interpreter.h \
   script/script.cpp \
@@ -382,10 +382,10 @@ libfantasy11_consensus_a_SOURCES = \
   crypto/Lyra2RE/Sponge.c \
   crypto/Lyra2RE/Sponge.h
 
-# common: shared between fantasy11d, and fantasy11-qt and non-server tools
-libfantasy11_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libfantasy11_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libfantasy11_common_a_SOURCES = \
+# common: shared between betfintd, and betfint-qt and non-server tools
+libbetfint_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libbetfint_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libbetfint_common_a_SOURCES = \
   amount.cpp \
   base58.cpp \
   bip39.cpp \
@@ -409,9 +409,9 @@ libfantasy11_common_a_SOURCES = \
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
-libfantasy11_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libfantasy11_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libfantasy11_util_a_SOURCES = \
+libbetfint_util_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libbetfint_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libbetfint_util_a_SOURCES = \
   support/lockedpool.cpp \
   chainparamsbase.cpp \
   clientversion.cpp \
@@ -430,30 +430,30 @@ libfantasy11_util_a_SOURCES = \
   $(BITCOIN_CORE_H)
 
 if GLIBC_BACK_COMPAT
-libfantasy11_util_a_SOURCES += compat/glibc_compat.cpp
+libbetfint_util_a_SOURCES += compat/glibc_compat.cpp
 endif
 
-# cli: shared between fantasy11-cli and fantasy11-qt
-libfantasy11_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-libfantasy11_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-libfantasy11_cli_a_SOURCES = \
+# cli: shared between betfint-cli and betfint-qt
+libbetfint_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+libbetfint_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libbetfint_cli_a_SOURCES = \
   rpc/client.cpp \
   $(BITCOIN_CORE_H)
 
-nodist_libfantasy11_util_a_SOURCES = $(srcdir)/obj/build.h
+nodist_libbetfint_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
-# fantasy11d binary #
-fantasy11d_SOURCES = fantasy11d.cpp
-fantasy11d_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-fantasy11d_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-fantasy11d_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# betfintd binary #
+betfintd_SOURCES = betfintd.cpp
+betfintd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+betfintd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+betfintd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-fantasy11d_SOURCES += fantasy11d-res.rc
+betfintd_SOURCES += betfintd-res.rc
 endif
 
-fantasy11d_LDADD = \
+betfintd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -466,37 +466,37 @@ fantasy11d_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-fantasy11d_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+betfintd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
 
-# fantasy11-cli binary #
-fantasy11_cli_SOURCES = fantasy11-cli.cpp
-fantasy11_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-fantasy11_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-fantasy11_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# betfint-cli binary #
+betfint_cli_SOURCES = betfint-cli.cpp
+betfint_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+betfint_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+betfint_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-fantasy11_cli_SOURCES += fantasy11-cli-res.rc
+betfint_cli_SOURCES += betfint-cli-res.rc
 endif
 
-fantasy11_cli_LDADD = \
+betfint_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
-fantasy11_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+betfint_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# fantasy11-tx binary #
-fantasy11_tx_SOURCES = fantasy11-tx.cpp
-fantasy11_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-fantasy11_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-fantasy11_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# betfint-tx binary #
+betfint_tx_SOURCES = betfint-tx.cpp
+betfint_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+betfint_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+betfint_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-fantasy11_tx_SOURCES += fantasy11-tx-res.rc
+betfint_tx_SOURCES += betfint-tx-res.rc
 endif
 
-fantasy11_tx_LDADD = \
+betfint_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -504,22 +504,22 @@ fantasy11_tx_LDADD = \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-fantasy11_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+betfint_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
-# fantasy11consensus library #
+# betfintconsensus library #
 if BUILD_BITCOIN_LIBS
-include_HEADERS = script/fantasy11consensus.h
-libfantasy11consensus_la_SOURCES = $(crypto_libfantasy11_crypto_a_SOURCES) $(libfantasy11_consensus_a_SOURCES)
+include_HEADERS = script/betfintconsensus.h
+libbetfintconsensus_la_SOURCES = $(crypto_libbetfint_crypto_a_SOURCES) $(libbetfint_consensus_a_SOURCES)
 
 if GLIBC_BACK_COMPAT
-  libfantasy11consensus_la_SOURCES += compat/glibc_compat.cpp
+  libbetfintconsensus_la_SOURCES += compat/glibc_compat.cpp
 endif
 
-libfantasy11consensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
-libfantasy11consensus_la_LIBADD = $(LIBSECP256K1)
-libfantasy11consensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
-libfantasy11consensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+libbetfintconsensus_la_LDFLAGS = $(AM_LDFLAGS) -no-undefined $(RELDFLAGS)
+libbetfintconsensus_la_LIBADD = $(LIBSECP256K1)
+libbetfintconsensus_la_CPPFLAGS = $(AM_CPPFLAGS) -I$(builddir)/obj -I$(srcdir)/secp256k1/include -DBUILD_BITCOIN_INTERNAL
+libbetfintconsensus_la_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 
 endif
 #
@@ -550,12 +550,12 @@ DISTCLEANFILES = obj/build.h
 EXTRA_DIST = $(CTAES_DIST)
 
 
-config/fantasy11-config.h: config/stamp-h1
+config/betfint-config.h: config/stamp-h1
 	@$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-config/stamp-h1: $(top_srcdir)/$(subdir)/config/fantasy11-config.h.in $(top_builddir)/config.status
+config/stamp-h1: $(top_srcdir)/$(subdir)/config/betfint-config.h.in $(top_builddir)/config.status
 	$(AM_V_at)$(MAKE) -C $(top_builddir) $(subdir)/$(@)
-$(top_srcdir)/$(subdir)/config/fantasy11-config.h.in:  $(am__configure_deps)
-	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/fantasy11-config.h.in
+$(top_srcdir)/$(subdir)/config/betfint-config.h.in:  $(am__configure_deps)
+	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/betfint-config.h.in
 
 clean-local:
 	-$(MAKE) -C secp256k1 clean

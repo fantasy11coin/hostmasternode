@@ -59,7 +59,7 @@ color:#333;
 /*...................................*/
 QToolBar > QToolButton:checked {
 /*background-color:#1c75bc;*/
-background-color:#FF8C00;
+background-color:#a4ab1b;
 color:#fff;
 font-weight:bold;
 }
@@ -745,16 +745,16 @@ QDialog#HelpMessageDialog QScrollBar:vertical, QDialog#HelpMessageDialog QScroll
 border:0;
 }
 
-/* About Fantasy11 Dialog */
+/* About Betfint Dialog */
 QDialog#AboutDialog {
 background-color:#F8F6F6;
 }
 
-QDialog#AboutDialog QLabel#label, QDialog#AboutDialog QLabel#copyrightLabel, QDialog#AboutDialog QLabel#label_2 { /* About Fantasy11 Contents */
+QDialog#AboutDialog QLabel#label, QDialog#AboutDialog QLabel#copyrightLabel, QDialog#AboutDialog QLabel#label_2 { /* About Betfint Contents */
 margin-left:10px;
 }
 
-QDialog#AboutDialog QLabel#label_2 { /* Margin for About Fantasy11 text */
+QDialog#AboutDialog QLabel#label_2 { /* Margin for About Betfint text */
 margin-right:10px;
 }
 
@@ -1115,7 +1115,7 @@ min-width:410px;
 margin-right:20px;
 margin-left:0;
 margin-top:15px;
-background-image: url(':/images/light/fantasy11_logo_horizontal');
+background-image: url(':/images/light/betfint_logo_horizontal');
 background-repeat:none;
 }
 

@@ -143,7 +143,7 @@ public:
 };
 
 /**
- * Fantasy11 RPC command dispatcher.
+ * Betfint RPC command dispatcher.
  */
 class CRPCTable
 {

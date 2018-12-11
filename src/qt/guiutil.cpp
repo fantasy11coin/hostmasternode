@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Fantasy11 Core developers
+// Copyright (c) 2014-2017 The Betfint Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -134,7 +134,7 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a Fantasy11 address (e.g. %1)").arg(
+    widget->setPlaceholderText(QObject::tr("Enter a Betfint address (e.g. %1)").arg(
         QString::fromStdString(DummyAddress(Params()))));
 #endif
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
@@ -152,8 +152,8 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no fantasy11: URI
-    if(!uri.isValid() || uri.scheme() != QString("fantasy11"))
+    // return if URI is not valid or is no betfint: URI
+    if(!uri.isValid() || uri.scheme() != QString("betfint"))
         return false;
 
     SendCoinsRecipient rv;
@@ -202,7 +202,7 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!BitcoinUnits::parse(BitcoinUnits::FANE, i->second, &rv.amount))
+                if(!BitcoinUnits::parse(BitcoinUnits::BETFE, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -222,13 +222,13 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert fantasy11:// to fantasy11:
+    // Convert betfint:// to betfint:
     //
-    //    Cannot handle this later, because fantasy11:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because betfint:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("fantasy11://", Qt::CaseInsensitive))
+    if(uri.startsWith("betfint://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 7, "fantasy11:");
+        uri.replace(0, 7, "betfint:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -236,12 +236,12 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatBitcoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("fantasy11:%1").arg(info.address);
+    QString ret = QString("betfint:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::FANE, info.amount, false, BitcoinUnits::separatorNever));
+        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::BETFE, info.amount, false, BitcoinUnits::separatorNever));
         paramCount++;
     }
 
@@ -442,7 +442,7 @@ void openConfigfile()
 {
     boost::filesystem::path pathConfig = GetConfigFile(GetArg("-conf", BITCOIN_CONF_FILENAME));
 
-    /* Open fantasy11.conf with the associated application */
+    /* Open betfint.conf with the associated application */
     if (boost::filesystem::exists(pathConfig))
         QDesktopServices::openUrl(QUrl::fromLocalFile(boostPathToQString(pathConfig)));
 }
@@ -652,15 +652,15 @@ boost::filesystem::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Fantasy11 Core.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Betfint Core.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "Fantasy11 Core (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Fantasy11 Core (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "Betfint Core (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("Betfint Core (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for "Fantasy11 Core*.lnk"
+    // check for "Betfint Core*.lnk"
     return boost::filesystem::exists(StartupShortcutPath());
 }
 
@@ -752,8 +752,8 @@ boost::filesystem::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "fantasy11core.desktop";
-    return GetAutostartDir() / strprintf("fantasy11core-%s.lnk", chain);
+        return GetAutostartDir() / "betfintcore.desktop";
+    return GetAutostartDir() / strprintf("betfintcore-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -792,13 +792,13 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = ChainNameFromCommandLine();
-        // Write a fantasy11core.desktop file to the autostart directory:
+        // Write a betfintcore.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=Fantasy11 Core\n";
+            optionFile << "Name=Betfint Core\n";
         else
-            optionFile << strprintf("Name=Fantasy11 Core (%s)\n", chain);
+            optionFile << strprintf("Name=Betfint Core (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", GetBoolArg("-testnet", false), GetBoolArg("-regtest", false));
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -819,7 +819,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl);
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl)
 {
-    // loop through the list of startup items and try to find the Fantasy11 Core app
+    // loop through the list of startup items and try to find the Betfint Core app
     CFArrayRef listSnapshot = LSSharedFileListCopySnapshot(list, NULL);
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
@@ -864,7 +864,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
     LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, bitcoinAppUrl);
 
     if(fAutoStart && !foundItem) {
-        // add Fantasy11 Core app to startup item list
+        // add Betfint Core app to startup item list
         LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, bitcoinAppUrl, NULL, NULL);
     }
     else if(!fAutoStart && foundItem) {

@@ -5,7 +5,7 @@
 #include "serialize.h"
 #include "streams.h"
 #include "hash.h"
-#include "test/test_fantasy11.h"
+#include "test/test_betfint.h"
 
 #include <stdint.h>
 

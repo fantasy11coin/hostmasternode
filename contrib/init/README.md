@@ -1,11 +1,11 @@
 Sample configuration files for:
 
-SystemD: fantasy11d.service
-Upstart: fantasy11d.conf
-OpenRC:  fantasy11d.openrc
-         fantasy11d.openrcconf
-CentOS:  fantasy11d.init
-OS X:    org.fantasy11.fantasy11d.plist
+SystemD: betfintd.service
+Upstart: betfintd.conf
+OpenRC:  betfintd.openrc
+         betfintd.openrcconf
+CentOS:  betfintd.init
+OS X:    org.betfint.betfintd.plist
 
 have been made available to assist packagers in creating node packages here.
 

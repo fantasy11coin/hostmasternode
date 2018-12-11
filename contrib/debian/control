@@ -1,8 +1,8 @@
-Source: fantasy11
+Source: betfint
 Section: utils
 Priority: optional
-Maintainer: Holger Schinzel <holger@fantasy11.com>
-Uploaders: Holger Schinzel <holger@fantasy11.com>
+Maintainer: Holger Schinzel <holger@betfint.com>
+Uploaders: Holger Schinzel <holger@betfint.com>
 Build-Depends: debhelper,
  devscripts,
  automake,
@@ -26,45 +26,45 @@ Build-Depends: debhelper,
  python,
  libzmq3-dev
 Standards-Version: 3.9.2
-Homepage: https://www.fantasy11.com/
-Vcs-Git: git://github.com/fantasy11pay/fantasy11.git
-Vcs-Browser: https://github.com/fantasy11pay/fantasy11
+Homepage: https://www.betfint.com/
+Vcs-Git: git://github.com/betfintpay/betfint.git
+Vcs-Browser: https://github.com/betfintpay/betfint
 
-Package: fantasy11d
+Package: betfintd
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
- Fantasy11 is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. Fantasy11 uses peer-to-peer
+ Betfint is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Betfint uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. Fantasy11 Core
+ and issuing money are carried out collectively by the network. Betfint Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides the daemon, fantasy11d, and the CLI tool
- fantasy11-cli to interact with the daemon.
+ This package provides the daemon, betfintd, and the CLI tool
+ betfint-cli to interact with the daemon.
 
-Package: fantasy11-qt
+Package: betfint-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- Fantasy11 is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. Fantasy11 uses peer-to-peer
+ Betfint is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Betfint uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. Fantasy11 Core
+ and issuing money are carried out collectively by the network. Betfint Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides Fantasy11-Qt, a GUI for Fantasy11 based on Qt.
+ This package provides Betfint-Qt, a GUI for Betfint based on Qt.
 
-Package: fantasy11-tx
+Package: betfint-tx
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer digital currency - standalone transaction tool
- Fantasy11 is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. Fantasy11 uses peer-to-peer
+ Betfint is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. Betfint uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. Fantasy11 Core
+ and issuing money are carried out collectively by the network. Betfint Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides fantasy11-tx, a command-line transaction creation
- tool which can be used without a fantasy11 daemon.  Some means of
+ This package provides betfint-tx, a command-line transaction creation
+ tool which can be used without a betfint daemon.  Some means of
  exchanging minimal transaction data with peers is still required.

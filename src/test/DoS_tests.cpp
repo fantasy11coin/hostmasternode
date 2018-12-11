@@ -14,7 +14,7 @@
 #include "util.h"
 #include "validation.h"
 
-#include "test/test_fantasy11.h"
+#include "test/test_betfint.h"
 
 #include <stdint.h>
 

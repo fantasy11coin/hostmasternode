@@ -10,10 +10,10 @@
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both fantasy11d and fantasy11-qt, to make it harder for attackers to
+ * for both betfintd and betfint-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("Fantasy11 Core");
+const std::string CLIENT_NAME("Betfint Core");
 
 /**
  * Client version number

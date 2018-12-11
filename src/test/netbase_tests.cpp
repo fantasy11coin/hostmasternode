@@ -1,10 +1,10 @@
 // Copyright (c) 2012-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Fantasy11 Core developers
+// Copyright (c) 2014-2017 The Betfint Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "netbase.h"
-#include "test/test_fantasy11.h"
+#include "test/test_betfint.h"
 
 #include <string>
 

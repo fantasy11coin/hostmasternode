@@ -1,5 +1,5 @@
-Building Fantasy11
+Building Betfint
 =============
 
 See doc/build-*.md for instructions on building the various
-elements of the Fantasy11 Core reference implementation of Fantasy11.
+elements of the Betfint Core reference implementation of Betfint.

@@ -1,5 +1,5 @@
 ---
-name: "fantasy11-dmg-signer"
+name: "betfint-dmg-signer"
 suites:
 - "trusty"
 architectures:
@@ -7,10 +7,10 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/fantasy11pay/fantasy11-detached-sigs.git"
+- "url": "https://github.com/betfintpay/betfint-detached-sigs.git"
   "dir": "signature"
 files:
-- "fantasy11core-osx-unsigned.tar.gz"
+- "betfintcore-osx-unsigned.tar.gz"
 script: |
   WRAP_DIR=$HOME/wrapped
   mkdir -p ${WRAP_DIR}
@@ -27,8 +27,8 @@ script: |
     chmod +x ${WRAP_DIR}/${prog}
   done
 
-  UNSIGNED=fantasy11core-osx-unsigned.tar.gz
-  SIGNED=fantasy11core-osx-signed.dmg
+  UNSIGNED=betfintcore-osx-unsigned.tar.gz
+  SIGNED=betfintcore-osx-signed.dmg
 
   tar -xf ${UNSIGNED}
   OSX_VOLNAME="$(cat osx_volname)"

@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Fantasy11 Core developers
+// Copyright (c) 2014-2017 The Betfint Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -52,7 +52,7 @@ static void noui_InitMessage(const std::string& message)
 
 void noui_connect()
 {
-    // Connect fantasy11d signal handlers
+    // Connect betfintd signal handlers
     uiInterface.ThreadSafeMessageBox.connect(noui_ThreadSafeMessageBox);
     uiInterface.ThreadSafeQuestion.connect(noui_ThreadSafeQuestion);
     uiInterface.InitMessage.connect(noui_InitMessage);

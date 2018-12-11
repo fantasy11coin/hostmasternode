@@ -155,7 +155,7 @@ class FrameworkInfo(object):
 class ApplicationBundleInfo(object):
     def __init__(self, path):
         self.path = path
-        appName = "Fantasy11-Qt"
+        appName = "Betfint-Qt"
         self.binaryPath = os.path.join(path, "Contents", "MacOS", appName)
         if not os.path.exists(self.binaryPath):
             raise RuntimeError("Could not find bundle binary for " + path)
@@ -491,7 +491,7 @@ ap.add_argument("-no-plugins", dest="plugins", action="store_false", default=Tru
 ap.add_argument("-no-strip", dest="strip", action="store_false", default=True, help="don't run 'strip' on the binaries")
 ap.add_argument("-sign", dest="sign", action="store_true", default=False, help="sign .app bundle with codesign tool")
 ap.add_argument("-dmg", nargs="?", const="", metavar="basename", help="create a .dmg disk image; if basename is not specified, a camel-cased version of the app name is used")
-ap.add_argument("-fancy", nargs=1, metavar="plist", default=[], help="make a fancy looking disk image using the given plist file with instructions; requires -dmg to work")
+ap.add_argument("-betfcy", nargs=1, metavar="plist", default=[], help="make a betfcy looking disk image using the given plist file with instructions; requires -dmg to work")
 ap.add_argument("-add-qt-tr", nargs=1, metavar="languages", default=[], help="add Qt translation files to the bundle's resources; the language list must be separated with commas, not with whitespace")
 ap.add_argument("-translations-dir", nargs=1, metavar="path", default=None, help="Path to Qt's translation files")
 ap.add_argument("-add-resources", nargs="+", metavar="path", default=[], help="list of additional files or folders to be copied into the bundle's resources; must be the last argument")
@@ -533,59 +533,59 @@ for p in config.add_resources:
 
 # ------------------------------------------------
 
-if len(config.fancy) == 1:
+if len(config.betfcy) == 1:
     if verbose >= 3:
         print("Fancy: Importing plistlib...")
     try:
         import plistlib
     except ImportError:
         if verbose >= 1:
-            sys.stderr.write("Error: Could not import plistlib which is required for fancy disk images.\n")
+            sys.stderr.write("Error: Could not import plistlib which is required for betfcy disk images.\n")
         sys.exit(1)
     
-    p = config.fancy[0]
+    p = config.betfcy[0]
     if verbose >= 3:
         print("Fancy: Loading \"%s\"..." % p)
     if not os.path.exists(p):
         if verbose >= 1:
-            sys.stderr.write("Error: Could not find fancy disk image plist at \"%s\"\n" % (p))
+            sys.stderr.write("Error: Could not find betfcy disk image plist at \"%s\"\n" % (p))
         sys.exit(1)
 
     try:
-        fancy = plistlib.readPlist(p)
+        betfcy = plistlib.readPlist(p)
     except:
         if verbose >= 1:
-            sys.stderr.write("Error: Could not parse fancy disk image plist at \"%s\"\n" % (p))
+            sys.stderr.write("Error: Could not parse betfcy disk image plist at \"%s\"\n" % (p))
         sys.exit(1)
 
     try:
-        assert "window_bounds" not in fancy or (isinstance(fancy["window_bounds"], list) and len(fancy["window_bounds"]) == 4)
-        assert "background_picture" not in fancy or isinstance(fancy["background_picture"], str)
-        assert "icon_size" not in fancy or isinstance(fancy["icon_size"], int)
-        assert "applications_symlink" not in fancy or isinstance(fancy["applications_symlink"], bool)
-        if "items_position" in fancy:
-            assert isinstance(fancy["items_position"], dict)
-            for key, value in fancy["items_position"].items():
+        assert "window_bounds" not in betfcy or (isinstance(betfcy["window_bounds"], list) and len(betfcy["window_bounds"]) == 4)
+        assert "background_picture" not in betfcy or isinstance(betfcy["background_picture"], str)
+        assert "icon_size" not in betfcy or isinstance(betfcy["icon_size"], int)
+        assert "applications_symlink" not in betfcy or isinstance(betfcy["applications_symlink"], bool)
+        if "items_position" in betfcy:
+            assert isinstance(betfcy["items_position"], dict)
+            for key, value in betfcy["items_position"].items():
                 assert isinstance(value, list) and len(value) == 2 and isinstance(value[0], int) and isinstance(value[1], int)
     except:
         if verbose >= 1:
-            sys.stderr.write("Error: Bad format of fancy disk image plist at \"%s\"\n" % (p))
+            sys.stderr.write("Error: Bad format of betfcy disk image plist at \"%s\"\n" % (p))
         sys.exit(1)
 
-    if "background_picture" in fancy:
-        bp = fancy["background_picture"]
+    if "background_picture" in betfcy:
+        bp = betfcy["background_picture"]
         if verbose >= 3:
             print("Fancy: Resolving background picture \"%s\"..." % bp)
         if not os.path.exists(bp):
             bp = os.path.join(os.path.dirname(p), bp)
             if not os.path.exists(bp):
                 if verbose >= 1:
-                    sys.stderr.write("Error: Could not find background picture at \"%s\" or \"%s\"\n" % (fancy["background_picture"], bp))
+                    sys.stderr.write("Error: Could not find background picture at \"%s\" or \"%s\"\n" % (betfcy["background_picture"], bp))
                 sys.exit(1)
             else:
-                fancy["background_picture"] = bp
+                betfcy["background_picture"] = bp
 else:
-    fancy = None
+    betfcy = None
 
 # ------------------------------------------------
 
@@ -604,7 +604,7 @@ else:
 
 # ------------------------------------------------
 
-target = os.path.join("dist", "Fantasy11-Qt.app")
+target = os.path.join("dist", "Betfint-Qt.app")
 
 if verbose >= 2:
     print("+ Copying source bundle +")
@@ -752,7 +752,7 @@ if config.dmg is not None:
         return run(hdiutil_args)
 
     if verbose >= 2:
-        if fancy is None:
+        if betfcy is None:
             print("+ Creating .dmg disk image +")
         else:
             print("+ Preparing .dmg disk image +")
@@ -763,7 +763,7 @@ if config.dmg is not None:
         spl = app_bundle_name.split(" ")
         dmg_name = spl[0] + "".join(p.capitalize() for p in spl[1:])
 
-    if fancy is None:
+    if betfcy is None:
         try:
             runHDIUtil("create", dmg_name, srcfolder="dist", format="UDBZ", volname=volname, ov=True)
         except subprocess.CalledProcessError as e:
@@ -796,18 +796,18 @@ if config.dmg is not None:
         disk_name = m.group(1)
 
         if verbose >= 2:
-            print("+ Applying fancy settings +")
+            print("+ Applying betfcy settings +")
 
-        if "background_picture" in fancy:
-            bg_path = os.path.join(disk_root, ".background", os.path.basename(fancy["background_picture"]))
+        if "background_picture" in betfcy:
+            bg_path = os.path.join(disk_root, ".background", os.path.basename(betfcy["background_picture"]))
             os.mkdir(os.path.dirname(bg_path))
             if verbose >= 3:
-                print(fancy["background_picture"], "->", bg_path)
-            shutil.copy2(fancy["background_picture"], bg_path)
+                print(betfcy["background_picture"], "->", bg_path)
+            shutil.copy2(betfcy["background_picture"], bg_path)
         else:
             bg_path = None
 
-        if fancy.get("applications_symlink", False):
+        if betfcy.get("applications_symlink", False):
             os.symlink("/Applications", os.path.join(disk_root, "Applications"))
 
         # The Python appscript package broke with OSX 10.8 and isn't being fixed.
@@ -839,8 +839,8 @@ if config.dmg is not None:
 
         itemscript = Template('set position of item "${item}" of container window to {${position}}')
         items_positions = []
-        if "items_position" in fancy:
-            for name, position in fancy["items_position"].items():
+        if "items_position" in betfcy:
+            for name, position in betfcy["items_position"].items():
                 params = { "item" : name, "position" : ",".join([str(p) for p in position]) }
                 items_positions.append(itemscript.substitute(params))
 
@@ -851,10 +851,10 @@ if config.dmg is not None:
             "background_commands" : "",
             "items_positions" : "\n                   ".join(items_positions)
             }
-        if "window_bounds" in fancy:
-            params["window_bounds"] = ",".join([str(p) for p in fancy["window_bounds"]])
-        if "icon_size" in fancy:
-            params["icon_size"] = str(fancy["icon_size"])
+        if "window_bounds" in betfcy:
+            params["window_bounds"] = ",".join([str(p) for p in betfcy["window_bounds"]])
+        if "icon_size" in betfcy:
+            params["icon_size"] = str(betfcy["icon_size"])
         if bg_path is not None:
             # Set background file, then call SetFile to make it invisible.
             # (note: making it invisible first makes set background picture fail)

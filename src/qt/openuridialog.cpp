@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2014 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Fantasy11 Core developers
+// Copyright (c) 2014-2017 The Betfint Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -17,7 +17,7 @@ OpenURIDialog::OpenURIDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 #if QT_VERSION >= 0x040700
-    ui->uriEdit->setPlaceholderText("fantasy11:");
+    ui->uriEdit->setPlaceholderText("betfint:");
 #endif
 }
 
@@ -49,5 +49,5 @@ void OpenURIDialog::on_selectFileButton_clicked()
     if(filename.isEmpty())
         return;
     QUrl fileUri = QUrl::fromLocalFile(filename);
-    ui->uriEdit->setText("fantasy11:?r=" + QUrl::toPercentEncoding(fileUri.toString()));
+    ui->uriEdit->setText("betfint:?r=" + QUrl::toPercentEncoding(fileUri.toString()));
 }

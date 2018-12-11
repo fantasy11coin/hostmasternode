@@ -12,10 +12,10 @@
 #include "script/sign.h"
 #include "util.h"
 #include "utilstrencodings.h"
-#include "test/test_fantasy11.h"
+#include "test/test_betfint.h"
 
 #if defined(HAVE_CONSENSUS_LIB)
-#include "script/fantasy11consensus.h"
+#include "script/betfintconsensus.h"
 #endif
 
 #include <fstream>
@@ -154,9 +154,9 @@ void DoTest(const CScript& scriptPubKey, const CScript& scriptSig, int flags, co
 #if defined(HAVE_CONSENSUS_LIB)
     CDataStream stream(SER_NETWORK, PROTOCOL_VERSION);
     stream << tx2;
-    int libconsensus_flags = flags & fantasy11consensus_SCRIPT_FLAGS_VERIFY_ALL;
+    int libconsensus_flags = flags & betfintconsensus_SCRIPT_FLAGS_VERIFY_ALL;
     if (libconsensus_flags == flags) {
-        BOOST_CHECK_MESSAGE(fantasy11consensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), (const unsigned char*)&stream[0], stream.size(), 0, libconsensus_flags, NULL) == expect,message);
+        BOOST_CHECK_MESSAGE(betfintconsensus_verify_script(scriptPubKey.data(), scriptPubKey.size(), (const unsigned char*)&stream[0], stream.size(), 0, libconsensus_flags, NULL) == expect,message);
     }
 #endif
 }

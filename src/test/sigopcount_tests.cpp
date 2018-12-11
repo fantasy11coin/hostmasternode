@@ -7,7 +7,7 @@
 #include "script/script.h"
 #include "script/standard.h"
 #include "uint256.h"
-#include "test/test_fantasy11.h"
+#include "test/test_betfint.h"
 
 #include <vector>
 

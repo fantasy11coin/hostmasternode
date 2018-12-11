@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/fantasy11-config.h"
+#include "config/betfint-config.h"
 #endif
 
 #include "timedata.h"

@@ -30,7 +30,7 @@ class QUrl;
 class QWidget;
 QT_END_NAMESPACE
 
-/** Utility functions used by the Fantasy11 Qt UI.
+/** Utility functions used by the Betfint Qt UI.
  */
 namespace GUIUtil
 {
@@ -45,7 +45,7 @@ namespace GUIUtil
     void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent);
     void setupAmountWidget(QLineEdit *widget, QWidget *parent);
 
-    // Parse "fantasy11:" URI into recipient object, return true on successful parsing
+    // Parse "betfint:" URI into recipient object, return true on successful parsing
     bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out);
     bool parseBitcoinURI(QString uri, SendCoinsRecipient *out);
     QString formatBitcoinURI(const SendCoinsRecipient &info);
@@ -114,7 +114,7 @@ namespace GUIUtil
     // Open debug.log
     void openDebugLogfile();
 	
-    // Open fantasy11.conf
+    // Open betfint.conf
     void openConfigfile();	
 
     // Open masternode.conf

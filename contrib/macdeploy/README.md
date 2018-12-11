@@ -8,8 +8,8 @@ This script should not be run manually, instead, after building as usual:
 
 	make deploy
 
-During the process, the disk image window will pop up briefly where the fancy
+During the process, the disk image window will pop up briefly where the betfcy
 settings are applied. This is normal, please do not interfere.
 
-When finished, it will produce `Fantasy11-Core.dmg`.
+When finished, it will produce `Betfint-Core.dmg`.
 

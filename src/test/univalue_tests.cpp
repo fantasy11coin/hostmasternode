@@ -8,7 +8,7 @@
 #include <string>
 #include <map>
 #include <univalue.h>
-#include "test/test_fantasy11.h"
+#include "test/test_betfint.h"
 
 #include <boost/test/unit_test.hpp>
 

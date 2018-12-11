@@ -4,7 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifdef HAVE_CONFIG_H
-#include "config/fantasy11-config.h"
+#include "config/betfint-config.h"
 #endif
 
 #include "netaddress.h"

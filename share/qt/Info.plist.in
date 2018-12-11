@@ -29,16 +29,16 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>Fantasy11-Qt</string>
+  <string>Betfint-Qt</string>
   
   <key>CFBundleName</key>
-  <string>Fantasy11-Qt</string>
+  <string>Betfint-Qt</string>
 
   <key>LSHasLocalizedDisplayName</key>
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>org.fantasy11.Fantasy11-Qt</string>
+  <string>org.betfint.Betfint-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -46,10 +46,10 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>org.fantasy11.Fantasy11Payment</string>
+      <string>org.betfint.BetfintPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>fantasy11</string>
+        <string>betfint</string>
       </array>
     </dict>
   </array>
@@ -58,9 +58,9 @@
   <array>
     <dict>
       <key>UTTypeIdentifier</key>
-      <string>org.fantasy11.paymentrequest</string>
+      <string>org.betfint.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>Fantasy11 payment request</string>
+      <string>Betfint payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>
@@ -68,10 +68,10 @@
       <key>UTTypeTagSpecification</key>
       <dict>
         <key>public.mime-type</key>
-        <string>application/x-fantasy11-payment-request</string>
+        <string>application/x-betfint-payment-request</string>
         <key>public.filename-extension</key>
         <array>
-          <string>fantasy11paymentrequest</string>
+          <string>betfintpaymentrequest</string>
         </array>
       </dict>
     </dict>
@@ -84,7 +84,7 @@
       <string>Editor</string>
       <key>LSItemContentTypes</key>
       <array>
-        <string>org.fantasy11.paymentrequest</string>
+        <string>org.betfint.paymentrequest</string>
       </array>
       <key>LSHandlerRank</key>
       <string>Owner</string>

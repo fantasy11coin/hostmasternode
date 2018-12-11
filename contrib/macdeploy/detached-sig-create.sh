@@ -6,7 +6,7 @@
 set -e
 
 ROOTDIR=dist
-BUNDLE="${ROOTDIR}/Fantasy11-Qt.app"
+BUNDLE="${ROOTDIR}/Betfint-Qt.app"
 CODESIGN=codesign
 TEMPDIR=sign.temp
 TEMPLIST=${TEMPDIR}/signatures.txt

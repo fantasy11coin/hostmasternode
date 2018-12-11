@@ -18,7 +18,7 @@
 #include "util.h"
 #include "utilstrencodings.h"
 
-#include "test/test_fantasy11.h"
+#include "test/test_betfint.h"
 
 #include <memory>
 

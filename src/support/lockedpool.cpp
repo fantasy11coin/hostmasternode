@@ -6,7 +6,7 @@
 #include "support/cleanse.h"
 
 #if defined(HAVE_CONFIG_H)
-#include "config/fantasy11-config.h"
+#include "config/betfint-config.h"
 #endif
 
 #ifdef WIN32

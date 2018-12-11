@@ -6,7 +6,7 @@
 #define BITCOIN_QT_BITCOINGUI_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/fantasy11-config.h"
+#include "config/betfint-config.h"
 #endif
 
 #include "amount.h"
@@ -246,7 +246,7 @@ private Q_SLOTS:
     void showPeers();
     void showRepair();
 
-    /** Open external (default) editor with fantasy11.conf */
+    /** Open external (default) editor with betfint.conf */
     void showConfEditor();
     /** Open external (default) editor with masternode.conf */
     void showMNConfEditor();

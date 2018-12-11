@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/fantasy11-config.h"
+#include "config/betfint-config.h"
 #endif
 
 #include "optionsdialog.h"
@@ -92,13 +92,13 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     }
     
     /* Theme selector */
-    ui->theme->addItem(QString("FANE-light"), QVariant("light"));
-    ui->theme->addItem(QString("FANE-light-hires"), QVariant("light-hires"));
-    ui->theme->addItem(QString("FANE-light-retro"), QVariant("light-retro"));
-    ui->theme->addItem(QString("FANE-light-hires-retro"), QVariant("light-hires-retro"));
-    ui->theme->addItem(QString("FANE-blue"), QVariant("drkblue"));
-    ui->theme->addItem(QString("FANE-Crownium"), QVariant("crownium"));
-    ui->theme->addItem(QString("FANE-traditional"), QVariant("trad"));
+    ui->theme->addItem(QString("BETFE-light"), QVariant("light"));
+    ui->theme->addItem(QString("BETFE-light-hires"), QVariant("light-hires"));
+    ui->theme->addItem(QString("BETFE-light-retro"), QVariant("light-retro"));
+    ui->theme->addItem(QString("BETFE-light-hires-retro"), QVariant("light-hires-retro"));
+    ui->theme->addItem(QString("BETFE-blue"), QVariant("drkblue"));
+    ui->theme->addItem(QString("BETFE-Crownium"), QVariant("crownium"));
+    ui->theme->addItem(QString("BETFE-traditional"), QVariant("trad"));
     
     /* Language selector */
     QDir translations(":translations");

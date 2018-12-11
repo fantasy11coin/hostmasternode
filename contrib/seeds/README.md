@@ -7,7 +7,7 @@ Be sure to update `MIN_PROTOCOL_VERSION` in `makeseeds.py` to include the curren
 
 The seeds compiled into the release are created from the current masternode list, like this:
 
-    fantasy11-cli masternodelist full > mnlist.json
+    betfint-cli masternodelist full > mnlist.json
     python3 makeseeds.py < mnlist.json > nodes_main.txt
     python3 generate-seeds.py . > ../../src/chainparamsseeds.h
 

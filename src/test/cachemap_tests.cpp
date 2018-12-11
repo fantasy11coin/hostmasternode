@@ -1,8 +1,8 @@
-// Copyright (c) 2014-2017 The Fantasy11 Core developers
+// Copyright (c) 2014-2017 The Betfint Core developers
 
 #include "cachemap.h"
 
-#include "test/test_fantasy11.h"
+#include "test/test_betfint.h"
 
 #include <boost/test/unit_test.hpp>
 

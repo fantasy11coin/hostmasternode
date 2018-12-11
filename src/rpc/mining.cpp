@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The Fantasy11 Core developers
+// Copyright (c) 2014-2017 The Betfint Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -426,10 +426,10 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
 
     if (Params().MiningRequiresPeers()) {
         if (g_connman->GetNodeCount(CConnman::CONNECTIONS_ALL) == 0)
-            throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Fantasy11 Core is not connected!");
+            throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Betfint Core is not connected!");
 
         if (IsInitialBlockDownload())
-            throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Fantasy11 Core is downloading blocks...");
+            throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Betfint Core is downloading blocks...");
     }
 
     // when enforcement is on we need information about a masternode payee or otherwise our block is going to be orphaned by the network
@@ -440,7 +440,7 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
     if (sporkManager.IsSporkActive(SPORK_9_SUPERBLOCKS_ENABLED)
         && !masternodeSync.IsSynced()
         && CSuperblock::IsValidBlockHeight(chainActive.Height() + 1))
-            throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Fantasy11 Core is syncing with network...");
+            throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Betfint Core is syncing with network...");
 
     static unsigned int nTransactionsUpdatedLast;
 

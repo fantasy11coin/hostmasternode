@@ -137,7 +137,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../fantasy11.qrc"/>
+  <include location="../betfint.qrc"/>
  </resources>
  <connections/>
 </ui>

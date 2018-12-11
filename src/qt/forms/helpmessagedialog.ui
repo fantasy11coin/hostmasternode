@@ -73,7 +73,7 @@
         <bool>false</bool>
        </property>
        <property name="pixmap">
-        <pixmap resource="../fantasy11.qrc">:/images/drkblue/about</pixmap>
+        <pixmap resource="../betfint.qrc">:/images/drkblue/about</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -169,7 +169,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../fantasy11.qrc"/>
+  <include location="../betfint.qrc"/>
  </resources>
  <connections>
   <connection>

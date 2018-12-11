@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between fantasy11-cli and fantasy11d)
- * of a given instance of the Fantasy11 system.
+ * CBaseChainParams defines the base parameters (shared between betfint-cli and betfintd)
+ * of a given instance of the Betfint system.
  */
 class CBaseChainParams
 {

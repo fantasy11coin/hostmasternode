@@ -13,7 +13,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"org.fantasy11.Fantasy11-Qt";
+        return @"org.betfint.Betfint-Qt";
     } else {
         return [self __bundleIdentifier];
     }

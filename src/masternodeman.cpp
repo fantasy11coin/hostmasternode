@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2017 The Fantasy11 Core developers
+// Copyright (c) 2014-2017 The Betfint Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -803,7 +803,7 @@ void CMasternodeMan::ProcessPendingMnbRequests(CConnman& connman)
 
 void CMasternodeMan::ProcessMessage(CNode* pfrom, const std::string& strCommand, CDataStream& vRecv, CConnman& connman)
 {
-    if(fLiteMode) return; // disable all Fantasy11 specific functionality
+    if(fLiteMode) return; // disable all Betfint specific functionality
 
     if (strCommand == NetMsgType::MNANNOUNCE) { //Masternode Broadcast
 
