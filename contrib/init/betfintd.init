@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+#  betfintd The Betfint Core server.
+#
+#
+# chkconfig: 345 80 20
+# description: betfintd
+# processname: betfintd
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/betfintd, see below
+if [ -f /etc/sysconfig/betfintd ]; then
+        . /etc/sysconfig/betfintd
+fi
+
+RETVAL=0
+
+prog=betfintd
+# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/betfintd
+lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/betfintd}
+
+# betfintd defaults to /usr/bin/betfintd, override with BITCOIND_BIN
+betfintd=${BITCOIND_BIN-/usr/bin/betfintd}
+
+# betfintd opts default to -disablewallet, override with BITCOIND_OPTS
+betfintd_opts=${BITCOIND_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $betfintd $betfintd_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

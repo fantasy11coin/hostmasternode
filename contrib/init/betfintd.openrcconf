@@ -1,0 +1,33 @@
+# /etc/conf.d/betfintd: config file for /etc/init.d/betfintd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/betfintcore/betfint.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/betfintd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/betfintd.pid"
+
+# Where to write betfintd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/betfintd"
+
+# User and group to own betfintd process
+#BITCOIND_USER="betfintcore"
+#BITCOIND_GROUP="betfintcore"
+
+# Path to betfintd executable
+#BITCOIND_BIN="/usr/bin/betfintd"
+
+# Nice value to run betfintd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#BITCOIND_OPTS=""
+
+# The timeout in seconds OpenRC will wait for bitcoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+BITCOIND_SIGTERM_TIMEOUT=60

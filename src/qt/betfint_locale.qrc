@@ -1,0 +1,21 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/betfint_bg.qm</file>
+        <file alias="de">locale/betfint_de.qm</file>
+        <file alias="en">locale/betfint_en.qm</file>
+        <file alias="es">locale/betfint_es.qm</file>
+        <file alias="fi">locale/betfint_fi.qm</file>
+        <file alias="fr">locale/betfint_fr.qm</file>
+        <file alias="it">locale/betfint_it.qm</file>
+        <file alias="ja">locale/betfint_ja.qm</file>
+        <file alias="nl">locale/betfint_nl.qm</file>
+        <file alias="pl">locale/betfint_pl.qm</file>
+        <file alias="pt">locale/betfint_pt.qm</file>
+        <file alias="ru">locale/betfint_ru.qm</file>
+        <file alias="sk">locale/betfint_sk.qm</file>
+        <file alias="sv">locale/betfint_sv.qm</file>
+        <file alias="vi">locale/betfint_vi.qm</file>
+        <file alias="zh_CN">locale/betfint_zh_CN.qm</file>
+        <file alias="zh_TW">locale/betfint_zh_TW.qm</file>
+    </qresource>
+</RCC>

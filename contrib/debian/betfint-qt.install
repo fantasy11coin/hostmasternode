@@ -1,0 +1,6 @@
+usr/local/bin/betfint-qt usr/bin
+share/pixmaps/betfint32.xpm usr/share/pixmaps
+share/pixmaps/betfint16.xpm usr/share/pixmaps
+share/pixmaps/betfint128.png usr/share/pixmaps
+debian/betfint-qt.desktop usr/share/applications
+debian/betfint-qt.protocol usr/share/kde4/services/
