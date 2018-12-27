@@ -675,6 +675,31 @@ bool DecodeHexVecMnb(std::vector<CMasternodeBroadcast>& vecMnb, std::string strH
     return true;
 }
 
+UniValue getmasternodecount (const JSONRPCRequest& request)
+{
+   
+
+    UniValue obj(UniValue::VOBJ);
+    int nCount = 0;
+    int ipv4 = 0, ipv6 = 0, onion = 0;
+
+   // if (chainActive.Tip())
+    //    mnodeman.GetNextMasternodeInQueueForPayment(chainActive.Tip()->nHeight, true, nCount);
+
+   // mnodeman.CountNetworks(ActiveProtocol(), ipv4, ipv6, onion);
+
+    obj.push_back(Pair("total", mnodeman.size()));
+    obj.push_back(Pair("stable", mnodeman.size()));
+    obj.push_back(Pair("obfcompat", 0 ));
+    obj.push_back(Pair("enabled", mnodeman.size()));
+    obj.push_back(Pair("inqueue", nCount));
+    obj.push_back(Pair("ipv4", ipv4));
+    obj.push_back(Pair("ipv6", ipv6));
+    obj.push_back(Pair("onion", onion));
+
+    return obj;
+}
+
 UniValue masternodebroadcast(const JSONRPCRequest& request)
 {
     std::string strCommand;
@@ -932,6 +957,7 @@ static const CRPCCommand commands[] =
   //  --------------------- ------------------------  -----------------------  ------ ----------
     { "betfint",               "masternode",             &masternode,             true,  {} },
     { "betfint",               "masternodelist",         &masternodelist,         true,  {} },
+    { "betfint",               "getmasternodecount",     &getmasternodecount,     true,  {} },
     { "betfint",               "masternodebroadcast",    &masternodebroadcast,    true,  {} },
     { "betfint",               "getpoolinfo",            &getpoolinfo,            true,  {} },
     { "betfint",               "sentinelping",           &sentinelping,           true,  {} },

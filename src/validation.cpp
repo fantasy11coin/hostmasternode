@@ -1287,10 +1287,12 @@ NOTE:   unlike bitcoin we are using PREVIOUS block height here,
 */
 CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly)
 	{
+	  if (nPrevHeight < 286)
+	        return 1000 * COIN;
+
+	    return 0.75 * COIN;
 
 
-
-     return 0.75 * COIN;
 
 
 	}
@@ -1299,13 +1301,17 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
 {
 
+	   if(nHeight < 100000) {
+	       return blockValue;
+	   }
+	   CAmount ret = blockValue * 0.85;
+	   return ret;
 
-
-    if(nHeight < 1051200) {
-    	return blockValue;
-    }
-    CAmount ret = blockValue/2;
-    return ret;
+   // if(nHeight < 1051200) {
+    //	return blockValue;
+   // }
+//    CAmount ret = blockValue/2;
+    //return ret;
 
     //    int nMNPIBlock = Params().GetConsensus().nMasternodePaymentsIncreaseBlock;
     //    int nMNPIPeriod = Params().GetConsensus().nMasternodePaymentsIncreasePeriod;
