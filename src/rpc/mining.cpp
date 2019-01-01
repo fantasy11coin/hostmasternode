@@ -738,7 +738,7 @@ UniValue getblocktemplate(const JSONRPCRequest& request)
 
                result.push_back(Pair("payee_amount", GetMasternodePayment(chainActive.Height() + 1,GetBlockSubsidy(pblock->nBits,chainActive.Height() + 1,consensusParams , false))) );
            } else {
-        	   if (chainActive.Height() + 1>202) {
+        	   if (chainActive.Height() + 1>500) {
                    throw JSONRPCError(RPC_INVALID_REQUEST, strprintf("No Masternode payment"));
         	   }
                result.push_back(Pair("payee", ""));

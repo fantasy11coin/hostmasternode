@@ -201,7 +201,7 @@ void FillBlockPayments(CMutableTransaction& txNew, int nBlockHeight, CAmount blo
 //    }
 
     // FILL BLOCK PAYEE WITH MASTERNODE PAYMENT OTHERWISE
-	if (nBlockHeight <=202)
+	if (nBlockHeight <=500)
 		return;
     mnpayments.FillBlockPayee(txNew, nBlockHeight, blockReward, txoutMasternodeRet);
     LogPrint("mnpayments", "FillBlockPayments -- nBlockHeight %d blockReward %lld txoutMasternodeRet %s txNew %s",

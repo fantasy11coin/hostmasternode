@@ -130,10 +130,10 @@ public:
 //    	    	  		uint32_t i=0;
 
 
-    	    		genesis = CreateGenesisBlock(1533392426,185426, 0x1e0ffff0, 1, 0.75 * COIN);
+    	    		genesis = CreateGenesisBlock(1533392427,471341, 0x1e0ffff0, 1, 0.75 * COIN);
 
 //    	    			while (true) {
-//    	    					genesis = CreateGenesisBlock(1533392426,i, 0x1e0ffff0, 1, 0.75 * COIN);
+//    	    					genesis = CreateGenesisBlock(1533392427,i, 0x1e0ffff0, 1, 0.75 * COIN);
 //    	    				arith_uint256 bnTarget;
 //
 //    	    				bnTarget.SetCompact(0x1e0ffff0, &fNegative, &fOverflow);
@@ -178,7 +178,7 @@ public:
     	    	        consensus.nPowKGWHeight = 15200; // same as mainnet
     	    	        consensus.nPowDGWHeight = 34140; // same as mainnet
     	    	        consensus.nRuleChangeActivationThreshold = 108; // 75% for testchains
-    	    	        consensus.nMinerConfirmationWindow = 144; // Faster than normal for regtest (144 instead of 2016)
+    	    	        consensus.nMinerConfirmationWindow = 2016;
     	    	        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
     	    	        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601;
     	    	        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999;
@@ -213,7 +213,7 @@ public:
     	    	        consensus.hashGenesisBlock = genesis.GetHash();
     	    	        assert(
     	    	        				consensus.hashGenesisBlock
-    	    	        						== uint256S("00000000d7c56ca2df65561b56e4534f48bae59450e0f27f5459919d2ad2702d"));
+    	    	        						== uint256S("00000eecf5721f2955dd3911417baa39fc82fd08c254e9e2f829ed3e07e78a93"));
     	    	                vSeeds.push_back(CDNSSeedData("dns1.betfint.xyz", "dns1.betfint.xyz"));
     	    	                vSeeds.push_back(CDNSSeedData("dns2.betfint.xyz", "dns2.betfint.xyz"));
     	    	                vSeeds.push_back(CDNSSeedData("dns3.betfint.xyz", "dns3.betfint.xyz"));

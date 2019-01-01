@@ -171,7 +171,7 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
     // Update coinbase transaction with additional info about masternode and governance payments,
     // get some info back to pass to getblocktemplate
     FillBlockPayments(coinbaseTx, nHeight, blockReward, pblock->txoutMasternode, pblock->voutSuperblock);
-    if (nHeight > 202 && pblock->txoutMasternode.scriptPubKey == CScript()) {
+    if (nHeight > 500 && pblock->txoutMasternode.scriptPubKey == CScript()) {
     	return nullptr;
     }
     // LogPrintf("CreateNewBlock -- nBlockHeight %d blockReward %lld txoutMasternode %s coinbaseTx %s",
