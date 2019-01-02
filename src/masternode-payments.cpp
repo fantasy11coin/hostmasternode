@@ -492,8 +492,7 @@ bool CMasternodePayments::GetBlockPayee(int nBlockHeight, CScript& payeeRet) con
     	 if (mn.IsEnabled()) {
     		 if ((nBlockHeight % i ) == j) {
     			 payeeRet= GetScriptForDestination(mn.pubKeyCollateralAddress.GetID());
-    			 if (nBlockHeight > 12000)
-    				 return true;
+    			 	 return true;
     			 break;
     		 }
     		 j++;

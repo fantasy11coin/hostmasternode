@@ -3369,7 +3369,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, const Consensus::P
 
 
     CBlockIndex *pindex = chainActive.Tip();
-    bool MasternodePayments =  (pindex != NULL) && (pindex->nHeight >500);
+    bool MasternodePayments =  false;// (pindex != NULL) && (pindex->nHeight >500);
 
     if(MasternodePayments)
         {
