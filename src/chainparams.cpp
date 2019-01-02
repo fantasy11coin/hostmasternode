@@ -171,7 +171,7 @@ public:
     	    	        consensus.BIP66Height = -1; // BIP66 activated on regtest (Used in rpc activation tests)
     	    	        consensus.DIP0001Height = 2000;
     	    	        consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"); // ~uint256(0) >> 1
-    	    	        consensus.nPowTargetTimespan = 3 * 60 ; // Betfint: 1 minute
+    	    	        consensus.nPowTargetTimespan = 24 * 60 * 60 ; // Betfint: 1 minute
     	    	        consensus.nPowTargetSpacing = 2 * 60; // Betfint: 2.5 minutes
     	    	        consensus.fPowAllowMinDifficultyBlocks = false;
     	    	        consensus.fPowNoRetargeting = false;
