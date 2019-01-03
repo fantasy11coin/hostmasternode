@@ -1,7 +1,7 @@
 // Copyright (c) 2014-2017 The Betfint Core developers
 // Distributed under the MIT software license, see the accompanying
-#ifndef BETFE_HDCHAIN_H
-#define BETFE_HDCHAIN_H
+#ifndef BETF_HDCHAIN_H
+#define BETF_HDCHAIN_H
 
 #include "key.h"
 #include "sync.h"
@@ -147,4 +147,4 @@ public:
     std::string GetKeyPath() const;
 };
 
-#endif // BETFE_HDCHAIN_H
+#endif // BETF_HDCHAIN_H

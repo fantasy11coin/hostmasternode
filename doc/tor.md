@@ -1,4 +1,4 @@
-TOR SUPPORT IN BETFE CORE
+TOR SUPPORT IN BETF CORE
 =======================
 
 It is possible to run Betfint Core as a Tor hidden service, and connect to such services.

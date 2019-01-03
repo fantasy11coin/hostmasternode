@@ -172,8 +172,8 @@
         <translation>Confirmar criptografia da carteira</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BETFE&lt;/b&gt;!</source>
-        <translation>Aviso: Se você encriptar sua wallet e perder sua senha, você vai &lt;b&gt;PERDER TODAS AS SUAS BETFE&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BETF&lt;/b&gt;!</source>
+        <translation>Aviso: Se você encriptar sua wallet e perder sua senha, você vai &lt;b&gt;PERDER TODAS AS SUAS BETF&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -857,28 +857,28 @@
         <translation>Por favor, escolha um nível de privacidade.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 1000 BETFE</source>
-        <translation>Usar 2 Masternodes separados para fazer a mixagem de fundos até 1000 BETFE</translation>
+        <source>Use 2 separate masternodes to mix funds up to 1000 BETF</source>
+        <translation>Usar 2 Masternodes separados para fazer a mixagem de fundos até 1000 BETF</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 1000 BETFE</source>
-        <translation>Usar 8 Masternodes separados para fazer a mixagem de fundos até 1000 BETFE</translation>
+        <source>Use 8 separate masternodes to mix funds up to 1000 BETF</source>
+        <translation>Usar 8 Masternodes separados para fazer a mixagem de fundos até 1000 BETF</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>Usar 16 Masternodes separados</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 BETFE to anonymize 1000 BETFE</source>
-        <translation>Esta é a opção mais rápida e custará em torno de ~0,025 BETFE para anonimizar 1000 BETFE</translation>
+        <source>This option is the quickest and will cost about ~0.025 BETF to anonymize 1000 BETF</source>
+        <translation>Esta é a opção mais rápida e custará em torno de ~0,025 BETF para anonimizar 1000 BETF</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 BETFE to anonymize 1000 BETFE</source>
-        <translation>Esta opção é moderadamente rápida e custará em torno de ~0,05 BETFE para anonimizar 1000 BETFE</translation>
+        <source>This option is moderately fast and will cost about 0.05 BETF to anonymize 1000 BETF</source>
+        <translation>Esta opção é moderadamente rápida e custará em torno de ~0,05 BETF para anonimizar 1000 BETF</translation>
     </message>
     <message>
-        <source>0.1 BETFE per 1000 BETFE you anonymize.</source>
-        <translation>0,1 BETFE por cada 1000 BETFE que você anonimizar.</translation>
+        <source>0.1 BETF per 1000 BETF you anonymize.</source>
+        <translation>0,1 BETF por cada 1000 BETF que você anonimizar.</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
@@ -1718,8 +1718,8 @@ https://www.transifex.com/projects/p/betfint/</translation>
         <translation>Quantia e Rodadas:</translation>
     </message>
     <message>
-        <source>0 BETFE / 0 Rounds</source>
-        <translation>0 BETFE / 0 Rodadas</translation>
+        <source>0 BETF / 0 Rounds</source>
+        <translation>0 BETF / 0 Rodadas</translation>
     </message>
     <message>
         <source>Submitted Denom:</source>
@@ -3799,8 +3799,8 @@ https://www.transifex.com/projects/p/betfint/</translation>
         <translation>Enviar moedas</translation>
     </message>
     <message>
-        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 BETFE.</source>
-        <translation>EnvioInstantâneo não suporta o envio de valores tão altos ainda. As transações são limitadas a %1 BETFE.</translation>
+        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 BETF.</source>
+        <translation>EnvioInstantâneo não suporta o envio de valores tão altos ainda. As transações são limitadas a %1 BETF.</translation>
     </message>
     <message>
         <source>Used way too many inputs (&gt;%1) for this InstantSend transaction, fees could be huge.</source>
@@ -4433,8 +4433,8 @@ https://www.transifex.com/projects/p/betfint/</translation>
         <translation>Se &lt;category&gt; não for suprida ou se &lt;category&gt; = 1, mostrar toda informação de depuração.</translation>
     </message>
     <message>
-        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 BETFE.</source>
-        <translation>EnvioInstantâneo não suporta o envio de valores tão altos ainda. As transações são limitadas a %1 BETFE.</translation>
+        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 BETF.</source>
+        <translation>EnvioInstantâneo não suporta o envio de valores tão altos ainda. As transações são limitadas a %1 BETF.</translation>
     </message>
     <message>
         <source>Prune configured below the minimum of %d MiB.  Please use a higher number.</source>
@@ -5021,8 +5021,8 @@ https://www.transifex.com/projects/p/betfint/</translation>
         <translation>Endereço de spork inválido especificado com -sporkaddr</translation>
     </message>
     <message>
-        <source>Keep N BETFE anonymized (%u-%u, default: %u)</source>
-        <translation>Mantenha o N BETFE anônimo (%u-%u, padrão: %u)</translation>
+        <source>Keep N BETF anonymized (%u-%u, default: %u)</source>
+        <translation>Mantenha o N BETF anônimo (%u-%u, padrão: %u)</translation>
     </message>
     <message>
         <source>Print this help message and exit</source>

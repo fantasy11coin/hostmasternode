@@ -514,7 +514,7 @@
                </font>
               </property>
               <property name="text">
-               <string notr="true">0 BETFE</string>
+               <string notr="true">0 BETF</string>
               </property>
              </widget>
             </item>
@@ -528,7 +528,7 @@
             <item row="3" column="1">
              <widget class="QLabel" name="labelAmountRounds">
               <property name="text">
-               <string>0 BETFE / 0 Rounds</string>
+               <string>0 BETF / 0 Rounds</string>
               </property>
              </widget>
             </item>

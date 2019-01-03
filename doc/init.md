@@ -104,7 +104,7 @@ use old versions of Upstart and do not supply the start-stop-daemon utility.
 Copy betfintd.init to /etc/init.d/betfintd. Test by running `service betfintd start`.
 
 Using this script, you can adjust the path and flags to the betfintd program by
-setting the BETFED and FLAGS environment variables in the file
+setting the BETFD and FLAGS environment variables in the file
 /etc/sysconfig/betfintd. You can also use the DAEMONOPTS environment variable here.
 
 4e) Mac OS X

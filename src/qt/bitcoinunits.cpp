@@ -19,9 +19,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(BETFE);
-    unitlist.append(mBETFE);
-    unitlist.append(uBETFE);
+    unitlist.append(BETF);
+    unitlist.append(mBETF);
+    unitlist.append(uBETF);
     unitlist.append(hostoshis);
     return unitlist;
 }
@@ -30,9 +30,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case BETFE:
-    case mBETFE:
-    case uBETFE:
+    case BETF:
+    case mBETF:
+    case uBETF:
     case hostoshis:
         return true;
     default:
@@ -46,9 +46,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case BETFE: return QString("BETFE");
-            case mBETFE: return QString("mBETFE");
-            case uBETFE: return QString::fromUtf8("μBETFE");
+            case BETF: return QString("BETF");
+            case mBETF: return QString("mBETF");
+            case uBETF: return QString::fromUtf8("μBETF");
             case hostoshis: return QString("hostoshis");
             default: return QString("???");
         }
@@ -57,9 +57,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case BETFE: return QString("tBETFE");
-            case mBETFE: return QString("mtBETFE");
-            case uBETFE: return QString::fromUtf8("μtBETFE");
+            case BETF: return QString("tBETF");
+            case mBETF: return QString("mtBETF");
+            case uBETF: return QString::fromUtf8("μtBETF");
             case hostoshis: return QString("thostoshis");
             default: return QString("???");
         }
@@ -72,9 +72,9 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case BETFE: return QString("Betfint");
-            case mBETFE: return QString("Milli-Betfint (1 / 1" THIN_SP_UTF8 "000)");
-            case uBETFE: return QString("Micro-Betfint (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case BETF: return QString("Betfint");
+            case mBETF: return QString("Milli-Betfint (1 / 1" THIN_SP_UTF8 "000)");
+            case uBETF: return QString("Micro-Betfint (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             case hostoshis: return QString("Ten Nano-Betfint (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
@@ -83,9 +83,9 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case BETFE: return QString("TestBetfints");
-            case mBETFE: return QString("Milli-TestBetfint (1 / 1" THIN_SP_UTF8 "000)");
-            case uBETFE: return QString("Micro-TestBetfint (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case BETF: return QString("TestBetfints");
+            case mBETF: return QString("Milli-TestBetfint (1 / 1" THIN_SP_UTF8 "000)");
+            case uBETF: return QString("Micro-TestBetfint (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             case hostoshis: return QString("Ten Nano-TestBetfint (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
@@ -96,9 +96,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case BETFE:  return 100000000;
-    case mBETFE: return 100000;
-    case uBETFE: return 100;
+    case BETF:  return 100000000;
+    case mBETF: return 100000;
+    case uBETF: return 100;
     case hostoshis: return 1;
     default:   return 100000000;
     }
@@ -108,9 +108,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case BETFE: return 8;
-    case mBETFE: return 5;
-    case uBETFE: return 2;
+    case BETF: return 8;
+    case mBETF: return 5;
+    case uBETF: return 2;
     case hostoshis: return 0;
     default: return 0;
     }

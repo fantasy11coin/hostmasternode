@@ -21,8 +21,8 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef BETFE_BIP39_H
-#define BETFE_BIP39_H
+#ifndef BETF_BIP39_H
+#define BETF_BIP39_H
 
 #include "support/allocators/secure.h"
 

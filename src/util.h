@@ -35,8 +35,8 @@
 
 // Uncomment the following line to enable debugging messages
 // or enable on a per file basis prior to inclusion of util.h
-//#define ENABLE_BETFE_DEBUG
-#ifdef ENABLE_BETFE_DEBUG
+//#define ENABLE_BETF_DEBUG
+#ifdef ENABLE_BETF_DEBUG
 #define DBG( x ) x
 #else
 #define DBG( x ) 

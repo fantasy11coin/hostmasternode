@@ -645,7 +645,7 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew) const
         }
     }
 
-    LogPrintf("CMasternodeBlockPayees::IsTransactionValid -- ERROR: Missing required payment, possible payees: '%s', amount: %f BETFE\n", strPayeesPossible, (float)nMasternodePayment/COIN);
+    LogPrintf("CMasternodeBlockPayees::IsTransactionValid -- ERROR: Missing required payment, possible payees: '%s', amount: %f BETF\n", strPayeesPossible, (float)nMasternodePayment/COIN);
     return false;
 }
 

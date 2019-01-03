@@ -92,13 +92,13 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     }
     
     /* Theme selector */
-    ui->theme->addItem(QString("BETFE-light"), QVariant("light"));
-    ui->theme->addItem(QString("BETFE-light-hires"), QVariant("light-hires"));
-    ui->theme->addItem(QString("BETFE-light-retro"), QVariant("light-retro"));
-    ui->theme->addItem(QString("BETFE-light-hires-retro"), QVariant("light-hires-retro"));
-    ui->theme->addItem(QString("BETFE-blue"), QVariant("drkblue"));
-    ui->theme->addItem(QString("BETFE-Crownium"), QVariant("crownium"));
-    ui->theme->addItem(QString("BETFE-traditional"), QVariant("trad"));
+    ui->theme->addItem(QString("BETF-light"), QVariant("light"));
+    ui->theme->addItem(QString("BETF-light-hires"), QVariant("light-hires"));
+    ui->theme->addItem(QString("BETF-light-retro"), QVariant("light-retro"));
+    ui->theme->addItem(QString("BETF-light-hires-retro"), QVariant("light-hires-retro"));
+    ui->theme->addItem(QString("BETF-blue"), QVariant("drkblue"));
+    ui->theme->addItem(QString("BETF-Crownium"), QVariant("crownium"));
+    ui->theme->addItem(QString("BETF-traditional"), QVariant("trad"));
     
     /* Language selector */
     QDir translations(":translations");

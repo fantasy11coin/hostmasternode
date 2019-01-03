@@ -210,10 +210,10 @@ class ComparisonTestFramework(BitcoinTestFramework):
 
     def add_options(self, parser):
         parser.add_option("--testbinary", dest="testbinary",
-                          default=os.getenv("BETFED", "betfintd"),
+                          default=os.getenv("BETFD", "betfintd"),
                           help="bitcoind binary to test")
         parser.add_option("--refbinary", dest="refbinary",
-                          default=os.getenv("BETFED", "betfintd"),
+                          default=os.getenv("BETFD", "betfintd"),
                           help="bitcoind binary to use for reference nodes (if any)")
 
     def setup_network(self):

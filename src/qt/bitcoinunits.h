@@ -57,9 +57,9 @@ public:
      */
     enum Unit
     {
-        BETFE,
-        mBETFE,
-        uBETFE,
+        BETF,
+        mBETF,
+        uBETF,
         hostoshis
     };
 

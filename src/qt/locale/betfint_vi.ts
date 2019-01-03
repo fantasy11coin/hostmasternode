@@ -172,8 +172,8 @@
         <translation>Xác nhận mã hoá ví</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BETFE&lt;/b&gt;!</source>
-        <translation>Chú ý: Nếu bạn mã hoá ví và mất mật khẩu, bạn sẽ &lt;b&gt;MẤT TẤT CẢ BETFE CỦA BẠN&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR BETF&lt;/b&gt;!</source>
+        <translation>Chú ý: Nếu bạn mã hoá ví và mất mật khẩu, bạn sẽ &lt;b&gt;MẤT TẤT CẢ BETF CỦA BẠN&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -857,28 +857,28 @@
         <translation>Hãy chọn mức độ riêng tư.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 1000 BETFE</source>
-        <translation>Sử dụng 2 masternode khác nhau để trộn số tiền lên đến 1000 BETFE</translation>
+        <source>Use 2 separate masternodes to mix funds up to 1000 BETF</source>
+        <translation>Sử dụng 2 masternode khác nhau để trộn số tiền lên đến 1000 BETF</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 1000 BETFE</source>
-        <translation>Sử dụng 8 masternode khác nhau để trộn số tiền lên đến 1000 BETFE</translation>
+        <source>Use 8 separate masternodes to mix funds up to 1000 BETF</source>
+        <translation>Sử dụng 8 masternode khác nhau để trộn số tiền lên đến 1000 BETF</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>Sử dụng 16 masternode khác nhau</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 BETFE to anonymize 1000 BETFE</source>
-        <translation>Tuỳ chọn này là nhanh nhất và sẽ mất chi phí khoảng ~0.025 BETFE để ẩn danh 1000 BETFE</translation>
+        <source>This option is the quickest and will cost about ~0.025 BETF to anonymize 1000 BETF</source>
+        <translation>Tuỳ chọn này là nhanh nhất và sẽ mất chi phí khoảng ~0.025 BETF để ẩn danh 1000 BETF</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 BETFE to anonymize 1000 BETFE</source>
-        <translation>Tuỳ chọn này là tương đối nhanh và sẽ mất chi phí khoảng ~0.05 BETFE để ẩn danh 1000 BETFE</translation>
+        <source>This option is moderately fast and will cost about 0.05 BETF to anonymize 1000 BETF</source>
+        <translation>Tuỳ chọn này là tương đối nhanh và sẽ mất chi phí khoảng ~0.05 BETF để ẩn danh 1000 BETF</translation>
     </message>
     <message>
-        <source>0.1 BETFE per 1000 BETFE you anonymize.</source>
-        <translation>0.1 BETFE cho mỗi 1000 BETFE bạn muốn ẩn danh.</translation>
+        <source>0.1 BETF per 1000 BETF you anonymize.</source>
+        <translation>0.1 BETF cho mỗi 1000 BETF bạn muốn ẩn danh.</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
@@ -1038,8 +1038,8 @@
         <translation>Thông tin PrivateSend</translation>
     </message>
     <message>
-        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Betfint in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.01 BETFE, 0.1 BETFE, 1 BETFE and 10 BETFE -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more info see &lt;a href="https://betfintpay.atlassian.net/wiki/display/DOC/PrivateSend"&gt;https://betfintpay.atlassian.net/wiki/display/DOC/PrivateSend&lt;/a&gt;         </source>
-        <translation>&lt;h3&gt;Cơ bản về PrivateSend&lt;/h3&gt; PrivateSend cho bạn sự thực sự riêng tư về tài chính bằng việc che dấu những nguồn cung. Tất cả Betfint trong ví của bạn bao gồm những "nguồn" khác nhau mà bạn nghĩ đó là các coin riêng biệt và rời rạc.&lt;br&gt; PrivateSend sử dụng một tiến trình độc đáo để trộn các đầu vào của bạn với đầu vào của những người khác, mà không làm cho các coin rời khỏi ví của bạn. Bạn vẫn giữ quyền kiểm soát tiền của bạn bất cứ lúc nào..&lt;hr&gt; &lt;b&gt;Quá trình PrivateSend làm việc như sau: &lt;/b&gt; &lt;ol type="1"&gt; &lt;li&gt;PrivateSend bắt đầu bằng việc chia các giao dịch đầu vào của bạn thành những mệnh giá chuẩn. Những mệnh giá đó là 0.01 BETFE, 0.1 BETFE, 1 BETFE, và 10 BETFE -- cũng giống như các mệnh giá trên tiền giấy mà bạn sử dụng hàng ngày.&lt;li&gt; &lt;li&gt;Ví của bạn sau đó gửi yêu cầu đến những nút phần mềm được cấu hình đặc biệt trên mạng gọi là các "masternode". Những masternode được báo rằng bạn quan tâm đến việc xáo trộn một mệnh giá nào đó. Không có thông tin định danh nào được gửi đến cho các masternode, và như vậy họ không bao giờ biết bạn "là ai".&lt;/li&gt; &lt;li&gt;Khi hai người khác nhau gửi những thông điệp tương tự, có nghĩa là họ muốn xáo trộn cùng loại mệnh giá, một phiên xáo trộn bắt đầu.Masternode xáo trộn các đầu vào và hướng dẫn tất cả ví của tất cả ba người dùng để trả đầu vào đã được chuyển đổi trở lại cho chính họ. Ví của bạn sẽ trả mệnh giá đó trực tiếp cho nó, nhưng với một địa chỉ khác (được gọi là địa chỉ trả tiền lẻ).&lt;/li&gt; &lt;/li&gt;Để thực sự che khuất nguồn tiền của bạn, ví của bạn phải lặp lại quy trình đó một số lần với mỗi mệnh giá nhất định. Mỗi lần tiến trình hoàn tất, nó được gọi là một "vòng". Mỗi vòng của PrivateSend làm nên độ khó bậc số mũ để xác định nguồn tiền của bạn đến từ đâu.&lt;/li&gt; &lt;li&gt;Quá trình xáo trộn này xảy ra trong chế độ nền mà không xen vào những việc khác của bạn. Khi bạn muốn làm một giao dịch, nguồn tiền của bạn đã được ẩn danh hoá rồi. Do đó bạn không cần phải đợi thêm gì nữa.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt; &lt;b&gt;QUAN TRỌNG:&lt;/b&gt; Ví của bạn chỉ có chứa 1000 "địa chỉ tiền trả lại". Mỗi lần một sự kiện xáo trộn xảy ra, có đến 9 địa chỉ sẽ được sử dụng. Điều đó có nghĩa với ví mới với 1000 địa chỉ thì dùng cho 100 lần trộn. Khi 900 địa chỉ đã được sử dụng, ví của bạn phải tạo thêm các địa chỉ mới. Nó chỉ có thể làm việc đó, tuy nhiên, nếu bạn có chế độ tự động backup được bật&lt;br&gt; Kết quả là, những người dùng mà chế độ backup bị tắt sẽ có chế độ PrivateSend cũng bị tắt.&lt;hr&gt; Để biết thêm thông tin hãy xem &lt;a href="https://betfintpay.atlassian.net/wiki/display/DOC/PrivateSend"&gt;https://betfintpay.atlassian.net/wiki/display/DOC/PrivateSend&lt;/a&gt;</translation>
+        <source>&lt;h3&gt;PrivateSend Basics&lt;/h3&gt; PrivateSend gives you true financial privacy by obscuring the origins of your funds. All the Betfint in your wallet is comprised of different "inputs" which you can think of as separate, discrete coins.&lt;br&gt; PrivateSend uses an innovative process to mix your inputs with the inputs of two other people, without having your coins ever leave your wallet. You retain control of your money at all times.&lt;hr&gt; &lt;b&gt;The PrivateSend process works like this:&lt;/b&gt;&lt;ol type="1"&gt; &lt;li&gt;PrivateSend begins by breaking your transaction inputs down into standard denominations. These denominations are 0.01 BETF, 0.1 BETF, 1 BETF and 10 BETF -- sort of like the paper money you use every day.&lt;/li&gt; &lt;li&gt;Your wallet then sends requests to specially configured software nodes on the network, called "masternodes." These masternodes are informed then that you are interested in mixing a certain denomination. No identifiable information is sent to the masternodes, so they never know "who" you are.&lt;/li&gt; &lt;li&gt;When two other people send similar messages, indicating that they wish to mix the same denomination, a mixing session begins. The masternode mixes up the inputs and instructs all three users' wallets to pay the now-transformed input back to themselves. Your wallet pays that denomination directly to itself, but in a different address (called a change address).&lt;/li&gt; &lt;li&gt;In order to fully obscure your funds, your wallet must repeat this process a number of times with each denomination. Each time the process is completed, it's called a "round." Each round of PrivateSend makes it exponentially more difficult to determine where your funds originated.&lt;/li&gt; &lt;li&gt;This mixing process happens in the background without any intervention on your part. When you wish to make a transaction, your funds will already be anonymized. No additional waiting is required.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt;&lt;b&gt;IMPORTANT:&lt;/b&gt; Your wallet only contains 1000 of these "change addresses." Every time a mixing event happens, up to 9 of your addresses are used up. This means those 1000 addresses last for about 100 mixing events. When 900 of them are used, your wallet must create more addresses. It can only do this, however, if you have automatic backups enabled.&lt;br&gt; Consequently, users who have backups disabled will also have PrivateSend disabled. &lt;hr&gt;For more info see &lt;a href="https://betfintpay.atlassian.net/wiki/display/DOC/PrivateSend"&gt;https://betfintpay.atlassian.net/wiki/display/DOC/PrivateSend&lt;/a&gt;         </source>
+        <translation>&lt;h3&gt;Cơ bản về PrivateSend&lt;/h3&gt; PrivateSend cho bạn sự thực sự riêng tư về tài chính bằng việc che dấu những nguồn cung. Tất cả Betfint trong ví của bạn bao gồm những "nguồn" khác nhau mà bạn nghĩ đó là các coin riêng biệt và rời rạc.&lt;br&gt; PrivateSend sử dụng một tiến trình độc đáo để trộn các đầu vào của bạn với đầu vào của những người khác, mà không làm cho các coin rời khỏi ví của bạn. Bạn vẫn giữ quyền kiểm soát tiền của bạn bất cứ lúc nào..&lt;hr&gt; &lt;b&gt;Quá trình PrivateSend làm việc như sau: &lt;/b&gt; &lt;ol type="1"&gt; &lt;li&gt;PrivateSend bắt đầu bằng việc chia các giao dịch đầu vào của bạn thành những mệnh giá chuẩn. Những mệnh giá đó là 0.01 BETF, 0.1 BETF, 1 BETF, và 10 BETF -- cũng giống như các mệnh giá trên tiền giấy mà bạn sử dụng hàng ngày.&lt;li&gt; &lt;li&gt;Ví của bạn sau đó gửi yêu cầu đến những nút phần mềm được cấu hình đặc biệt trên mạng gọi là các "masternode". Những masternode được báo rằng bạn quan tâm đến việc xáo trộn một mệnh giá nào đó. Không có thông tin định danh nào được gửi đến cho các masternode, và như vậy họ không bao giờ biết bạn "là ai".&lt;/li&gt; &lt;li&gt;Khi hai người khác nhau gửi những thông điệp tương tự, có nghĩa là họ muốn xáo trộn cùng loại mệnh giá, một phiên xáo trộn bắt đầu.Masternode xáo trộn các đầu vào và hướng dẫn tất cả ví của tất cả ba người dùng để trả đầu vào đã được chuyển đổi trở lại cho chính họ. Ví của bạn sẽ trả mệnh giá đó trực tiếp cho nó, nhưng với một địa chỉ khác (được gọi là địa chỉ trả tiền lẻ).&lt;/li&gt; &lt;/li&gt;Để thực sự che khuất nguồn tiền của bạn, ví của bạn phải lặp lại quy trình đó một số lần với mỗi mệnh giá nhất định. Mỗi lần tiến trình hoàn tất, nó được gọi là một "vòng". Mỗi vòng của PrivateSend làm nên độ khó bậc số mũ để xác định nguồn tiền của bạn đến từ đâu.&lt;/li&gt; &lt;li&gt;Quá trình xáo trộn này xảy ra trong chế độ nền mà không xen vào những việc khác của bạn. Khi bạn muốn làm một giao dịch, nguồn tiền của bạn đã được ẩn danh hoá rồi. Do đó bạn không cần phải đợi thêm gì nữa.&lt;/li&gt; &lt;/ol&gt; &lt;hr&gt; &lt;b&gt;QUAN TRỌNG:&lt;/b&gt; Ví của bạn chỉ có chứa 1000 "địa chỉ tiền trả lại". Mỗi lần một sự kiện xáo trộn xảy ra, có đến 9 địa chỉ sẽ được sử dụng. Điều đó có nghĩa với ví mới với 1000 địa chỉ thì dùng cho 100 lần trộn. Khi 900 địa chỉ đã được sử dụng, ví của bạn phải tạo thêm các địa chỉ mới. Nó chỉ có thể làm việc đó, tuy nhiên, nếu bạn có chế độ tự động backup được bật&lt;br&gt; Kết quả là, những người dùng mà chế độ backup bị tắt sẽ có chế độ PrivateSend cũng bị tắt.&lt;hr&gt; Để biết thêm thông tin hãy xem &lt;a href="https://betfintpay.atlassian.net/wiki/display/DOC/PrivateSend"&gt;https://betfintpay.atlassian.net/wiki/display/DOC/PrivateSend&lt;/a&gt;</translation>
     </message>
 </context>
 <context>
@@ -1722,8 +1722,8 @@ https://www.transifex.com/projects/p/betfint/</translation>
         <translation>Số tiền và số vòng:</translation>
     </message>
     <message>
-        <source>0 BETFE / 0 Rounds</source>
-        <translation>0 BETFE / 0 Vòng</translation>
+        <source>0 BETF / 0 Rounds</source>
+        <translation>0 BETF / 0 Vòng</translation>
     </message>
     <message>
         <source>Submitted Denom:</source>
@@ -3815,8 +3815,8 @@ https://www.transifex.com/projects/p/betfint/</translation>
         <translation>Gửi tiền</translation>
     </message>
     <message>
-        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 BETFE.</source>
-        <translation>InstantSend không hỗ trợ gửi giá trị lớn đến vậy. Các giao dịch hiện giới hạn với %1 BETFE.</translation>
+        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 BETF.</source>
+        <translation>InstantSend không hỗ trợ gửi giá trị lớn đến vậy. Các giao dịch hiện giới hạn với %1 BETF.</translation>
     </message>
     <message>
         <source>Used way too many inputs (&gt;%1) for this InstantSend transaction, fees could be huge.</source>
@@ -4521,8 +4521,8 @@ https://www.transifex.com/projects/p/betfint/</translation>
         <translation>Nếu &lt;category&gt; không được cung cấp hoặc nếu &lt;category&gt; = 1, xuất tất cả các thông tin gỡ lỗi.</translation>
     </message>
     <message>
-        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 BETFE.</source>
-        <translation>InstantSend chưa hỗ trợ việc gửi những giá trị lớn như vậy. Các giao dịch hiện tại bị giới hạn đến %1 BETFE.</translation>
+        <source>InstantSend doesn't support sending values that high yet. Transactions are currently limited to %1 BETF.</source>
+        <translation>InstantSend chưa hỗ trợ việc gửi những giá trị lớn như vậy. Các giao dịch hiện tại bị giới hạn đến %1 BETF.</translation>
     </message>
     <message>
         <source>InstantSend requires inputs with at least %d confirmations, you might need to wait a few minutes and try again.</source>
@@ -5149,7 +5149,7 @@ https://www.transifex.com/projects/p/betfint/</translation>
         <translation>Địa chỉ spork được chỉ ra không hợp lệ với -sporkaddr</translation>
     </message>
     <message>
-        <source>Keep N BETFE anonymized (%u-%u, default: %u)</source>
+        <source>Keep N BETF anonymized (%u-%u, default: %u)</source>
         <translation>Giữ N Betfint ẩn danh (%u-%u, ngầm định: %u)</translation>
     </message>
     <message>
